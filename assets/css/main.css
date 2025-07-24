@@ -72,6 +72,148 @@ input, select, textarea {
 	appearance: none;
 }
 
+/* Testmonials */
+#testimonials {
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.testimonial-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+}
+
+.testimonial-card {
+  background: #f8f8f8;
+  padding: 1.5rem;
+  border-left: 4px solid #007bff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial-author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-author a {
+  font-size: 0.9rem;
+  color: #007bff;
+}
+
+
+/* Skills */
+#skills {
+  margin-top: 3rem;
+  padding-left: 1rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  margin-top: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border: none; /* Removes lines under each cell */
+}
+
+.skill-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-weight: bold;
+  color: #222;
+  margin-top: 0.25rem;
+}
+
+
+/* Timeline Cards */
+.timeline-wrapper {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 24px; /* aligns with center of first logo */
+  bottom: 60px; /* stops at center of last logo */
+  left: 65px;  /* centers on 48px-wide logo */
+  width: 2px;
+  background-color: #ccc;
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+
+.timeline-card {
+  position: relative;
+  padding-left: 80px; /* space for large logo */
+  margin-bottom: 3rem;
+}
+
+.timeline-logo {
+  position: absolute;
+  left: 10px; /* centers 48px logo around line at 34px */
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px #007bff;
+  background-color: white;
+  z-index: 1;
+}
+
+.timeline-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.timeline-content {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+
+
 /* Basic */
 
 	html {
@@ -240,6 +382,62 @@ input, select, textarea {
 	.align-right {
 		text-align: right;
 	}
+
+	html {
+  scroll-behavior: smooth;
+}
+
+	/* Navigation Bar */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 999;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 1); /* slight transparency */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle drop shadow */
+  backdrop-filter: blur(10px); /* glassmorphism effect */
+  transition: all 0.3s ease-in-out;
+}
+
+#navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#navbar li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+#navbar li a:hover {
+  color: #007bff;
+}
+#navbar a {
+  text-decoration: none;      /* Removes underlines */
+  outline: none;              /* Removes dotted focus outlines */
+  border: none;               /* Just in case */
+  color: inherit;             /* Optional: uses the surrounding text color */
+}
+
+#navbar a:focus {
+  outline: none;
+}
+
+/* Add some space so content doesn't get hidden behind the nav */
+body {
+  padding-top: 60px; /* adjust if your nav is taller */
+}
+
 
 /* Container */
 
@@ -2683,7 +2881,7 @@ input, select, textarea {
 
 	#main {
 		margin-left: 35%;
-		max-width: 54em;
+		max-width: none;
 		padding: 8em 4em 4em 4em;
 		width: calc(100% - 35%);
 	}

@@ -3,6 +3,7 @@
 	Strata by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	rebuild
 -->
 <html>
 	<head>
@@ -20,6 +21,15 @@
 			}
   		</style>
 	</head>
+	<nav id="navbar">
+	<ul>
+		<li><a href="#one">About</a></li>
+		<li><a href="#two">Projects</a></li>
+		<li><a href="#Experience">Experience</a></li>
+		<li><a href="#skills">Skills</a></li>
+		<li><a href="#three">Contact</a></li>
+	</ul>
+	</nav>
 	<body class="is-preload">
 
 		<!-- Header -->
@@ -44,26 +54,47 @@
 			<div id="main">
 
 				<!-- One -->
-					<section id="one">
-						<header class="major">
-							<h2 style="color: black;">About Me</h2>
-						</header>
-						<p>Hi, I’m Vamsi Sai Abhijit Tadepalli — part roboticist, part caffeine-powered debugger. I’m currently pursuing my M.S. in Robotics at ASU, where I spend my days teaching robots how to see, think, and not crash into walls (most of the time).<br>
+				<section id="one">
+				<header class="major">
+					<h2 style="color: black;">About Me</h2>
+				</header>
+				<p>
+					Hi, I’m Vamsi Sai Abhijit Tadepalli — a robotics engineer blending systems thinking with a bit of caffeine-fueled determination. I’m currently pursuing my M.S. in Robotics at ASU, where I specialize in <strong>computer vision, perception, and autonomy</strong> for intelligent robotic systems.
+				</p>
 
-At the IRIS Lab, I work on object tracking algorithms that occasionally cooperate with me. My past adventures include flying drones that land on moving targets, building omni-wheel robots that move like they’re moonwalking, and training machines to spot steel defects better than your average overworked factory inspector.<br>
+				<p>
+					At the <strong>IRIS Lab</strong>, I contribute to vision-based tracking systems, currently refactoring and extending the <em>TwinTrack</em> framework for dynamic object tracking. My experience spans real-time control of drones for precision landings, and deep learning pipelines for industrial defect detection at <strong>BARC</strong>.
+				</p>
 
-When I’m not wrangling sensors or tuning PID loops, I enjoy pretending my simulation didn't just explode. I believe in turning math into motion and coffee into code.
+				<p>
+					I enjoy working at the intersection of software and the physical world — building systems that not only run in simulation, but also survive it. My toolkit includes <strong>Python, C++, ROS2, OpenCV, and Linux</strong>, and my mindset is tuned for clean, modular, and testable code.
+				</p>
 
-</p>
-						<!-- <ul class="actions">
-							<li><a href="#" class="button">Download Resume</a></li>
-						</ul> -->
-					</section>
+				<p>
+					I’m currently looking for full-time roles in <strong>robotics, computer vision, or autonomous systems</strong>, where I can help intelligent machines perceive, plan, and move reliably — whether in research or product environments.
+				</p>
+				</section>
 
 				<!-- Two -->
 					<section id="two">
-						<h2>Recent Work</h2>
+						<h2>Project Highlights</h2>
 						<div class="row">
+							<article class="col-6 col-12-xsmall work-item">
+								<div class="image fit thumb">
+									<video autoplay muted loop playsinline class="fit thumb">
+										<source src="images/twintrack.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+								</div>
+								<h3>TwinTrack:Vision-Based SLAM & Tracking Framework</h3> 
+								<!-- show the screen where the blocks detected are being shown -->
+								<p>
+									Refactored and maintained TwinTrack’s codebase to improve clarity and support future research.<br><br>
+									i. Maintained and refactored the official TwinTrack codebase — a dual-branch tracking system integrating short-term and long-term visual cues<br><br>
+									ii. Added structured comments, cleaned legacy scripts, and resolved inconsistencies across modules for smoother execution<br><br>
+									iii. Improved readability, modularity, and extensibility in preparation for integration with new visual recognition pipelines
+								</p>
+							</article>
 							<article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
 									<video autoplay muted loop playsinline class="fit thumb">
@@ -71,7 +102,8 @@ When I’m not wrangling sensors or tuning PID loops, I enjoy pretending my simu
 										Your browser does not support the video tag.
 									</video>
 								</div>
-								<h3>Simulink-Based Autonomous UAV for Target Tracking and Landing</h3>
+								<h3>Autonomous UAV for Target Tracking and Landing</h3> 
+								<!-- show the screen where the blocks detected are being shown -->
 								<p>
 									Developed a Simulink model for the Parrot Mambo Minidrone to autonomously track and land on a moving target.<br><br>
 									i. Tuned control parameters on the Parrot Mambo Minidrone to achieve stable flight with response times under 200 ms<br><br>
@@ -83,7 +115,8 @@ When I’m not wrangling sensors or tuning PID loops, I enjoy pretending my simu
 							<article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
 									<video autoplay muted loop playsinline class="fit thumb">
-										<source src="images/turtlebotvideo.mp4" type="video/mp4">
+										<source src="#" type="video/mp4">
+										<!-- Improve the video -->
 										Your browser does not support the video tag.
 									</video>
 								</div>
@@ -96,7 +129,9 @@ When I’m not wrangling sensors or tuning PID loops, I enjoy pretending my simu
 								</p>
 							</article>
 
-							<article class="col-6 col-12-xsmall work-item">
+							
+
+							<!-- <article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
 									<video autoplay muted loop playsinline class="fit thumb">
 										<source src="images/omniWheeledRobot.mp4" type="video/mp4">
@@ -111,7 +146,7 @@ When I’m not wrangling sensors or tuning PID loops, I enjoy pretending my simu
 									iii. Integrated ultrasonic and IR sensors for obstacle detection and task execution with sensor response times under 100 ms
 								</p>
 
-							</article>
+							</article> -->
 
 							<!-- <article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
@@ -129,7 +164,7 @@ When I’m not wrangling sensors or tuning PID loops, I enjoy pretending my simu
 								</p>
 							</article> -->
 
-							<article class="col-6 col-12-xsmall work-item">
+							<!-- <article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
 									<video autoplay muted loop playsinline class="fit thumb">
 										<source src="images/fmaeeditedvideo.mp4" type="video/mp4">
@@ -144,15 +179,163 @@ When I’m not wrangling sensors or tuning PID loops, I enjoy pretending my simu
 									iii. Modeled and assembled drivetrain components from CAD to hardware, bridging design and physical prototyping
 								</p>
 
-							</article>
+							</article> -->
 						</div>
 					</section>
 
+					<section id="Experience">
+					<h2>Experience</h2>
+
+					<div class="timeline-wrapper">
+						<div class="timeline-line"></div>
+
+						<div class="timeline">
+
+						<div class="timeline-card">
+						<div class="timeline-logo">
+							<img src="images/irisLogo.png" alt="IRIS Lab" />
+						</div>
+						<div class="timeline-content">
+							<div class="timeline-date">Dec 2024 – Present</div>
+							<h3>Research Assistant @ IRIS Lab, ASU</h3>
+							<ul>
+							<li>Maintained and cleaned the codebase of a real-time SLAM and object tracking framework for aerial robotics.</li>
+							<li>Refactored legacy modules to improve readability, modularity, and integration with ongoing vision research pipelines.</li>
+							<li>Added inline documentation, structured comments, and consistent naming conventions for easier debugging and handoff.</li>
+							<li>Worked closely with PhD researchers to align code logic with the <strong>TwinTrack</strong> framework and experimental protocols.</li>
+							<li>Currently developing a new computer vision module for dynamic target tracking in partially observable environments.</li>
+							<li>Using <strong>Python</strong>, <strong>OpenCV</strong>, and <strong>ROS2</strong> in a Linux-based, real-time robotics development environment.</li>
+							<li>Contributing to the IRIS Lab’s broader effort in perception and autonomy for UAVs in cluttered, dynamic scenes.</li>
+							</ul>
+						</div>
+						</div>
+
+						<div class="timeline-card">
+						<div class="timeline-logo">
+							<img src="images/barcLogo.png" alt="BARC" />
+						</div>
+						<div class="timeline-content">
+							<div class="timeline-date">Jan – May 2024</div>
+							<h3>Intern @ BARC, Mumbai</h3>
+							<ul>
+							<li>Worked on the project <strong>"Steel Surface Defect Detection using Deep Convolutional Neural Networks"</strong>, focused on automating visual inspection in industrial settings.</li>
+							<li>Developed and trained CNN models to detect and classify surface defects such as cracks, scratches, and patches on steel sheet images.</li>
+							<li>Handled complete deep learning pipeline including data preprocessing, augmentation, and hyperparameter tuning.</li>
+							<li>Achieved improved model accuracy through iterative experimentation with CNN depth, dropout layers, and optimizer configurations.</li>
+							<li>Used <strong>Python</strong>, <strong>TensorFlow/Keras</strong>, and <strong>OpenCV</strong> for model development and image processing tasks.</li>
+							<li>Annotated training data using <strong>LabelImg</strong> and addressed challenges like noisy inputs and class imbalance in real-world industrial datasets.</li>
+							<li>Collaborated with domain experts to align model performance with practical defect detection requirements in the steel industry.</li>
+							</ul>
+						</div>
+						</div>
+
+						<div class="timeline-card">
+						<div class="timeline-logo">
+							<img src="images/iithLogo.jpg" alt="IIT" />
+						</div>
+						<div class="timeline-content">
+							<div class="timeline-date">May – July 2023</div>
+							<h3>Intern @ Indian Institute of Technology, Hyderabad</h3>
+							<ul>
+							<li>Designed and developed a <strong>4-DOF 3D-printed robotic arm</strong> with a servo-actuated mechanical gripper for basic manipulation tasks.</li>
+							<li>Built the arm using lightweight PLA components and high-torque servo motors for joint actuation and end-effector control.</li>
+							<li>Initially programmed fixed motion sequences in <strong>Arduino (C/C++)</strong>, later integrated <strong>joystick-based manual control</strong> for interactive testing.</li>
+							<li>Worked on tuning servo speed and coordination to reduce abrupt, high-speed movements and improve smoothness.</li>
+							<li>Handled mechanical assembly, wiring, calibration, and control logic independently during the prototyping phase.</li>
+							<li>Gained hands-on experience in embedded systems, servo motor dynamics, and real-time manual control implementation.</li>
+							</ul>
+						</div>
+						</div>
+
+						</div>
+					</div>
+					</section>
+
+					<section id="skills">
+						<h2>Skills</h2>
+
+						<div class="skills-grid">
+							<div class="skill-item">
+							<img src="images/Python-logo-notext.svg.png" alt="Python" class="skill-logo">
+							<span>Python</span>
+							</div>
+							<div class="skill-item">
+							<img src="images/ISO_C++_Logo.svg.png" alt="C++" class="skill-logo">
+							<span>C++</span>
+							</div>
+							<div class="skill-item">
+							<img src="images/Ros_logo.svg.png" alt="ROS2" class="skill-logo">
+							<span>ROS2</span>
+							</div>
+							<div class="skill-item">
+							<img src="images/image.png" alt="OpenCV" class="skill-logo">
+							<span>OpenCV</span>
+							</div>
+							<div class="skill-item">
+							<img src="images/matlab.svg" alt="MATLAB" class="skill-logo">
+							<span>MATLAB</span>
+							</div>
+							<div class="skill-item">
+							<img src="images/Simulink_Logo_(non-wordmark).png" alt="Simulink" class="skill-logo">
+							<span>Simulink</span>
+							</div>
+							<div class="skill-item">
+							<img src="images/Google_JAX_logo.svg.png" alt="JAX" class="skill-logo">
+							<span>JAX</span>
+							</div>
+							
+						</div>
+						</section>
+
+
+					<!-- <section id="testimonials">
+						<h2>Testimonials</h2>
+
+						<div class="testimonial-container">
+
+							<div class="testimonial-card">
+							<p class="testimonial-text">
+								"Abhijit demonstrated a strong grasp of autonomous navigation and perception systems during his time at the IRIS Lab. His work on SLAM optimization contributed significantly to our research objectives."
+							</p>
+							<div class="testimonial-author">
+								<img src="images/prof1.jpg" alt="Prof. Jane Doe">
+								<div>
+								<strong>Prof. Jane Doe</strong><br>
+								Robotics Lab Supervisor, IRIS Lab<br>
+								<a href="https://linkedin.com/in/janedoe" target="_blank">LinkedIn</a>
+								</div>
+							</div>
+							</div>
+
+							<div class="testimonial-card">
+							<p class="testimonial-text">
+								"He approached each challenge with great curiosity and technical rigor. Abhijit would be a valuable asset to any robotics team."
+							</p>
+							<div class="testimonial-author">
+								<img src="images/prof2.jpg" alt="Dr. John Smith">
+								<div>
+								<strong>Dr. John Smith</strong><br>
+								Lead AI Scientist, BARC<br>
+								<a href="https://linkedin.com/in/johnsmith" target="_blank">LinkedIn</a>
+								</div>
+							</div>
+							</div>
+
+						</div>
+						</section> -->
+
+
+
 				<!-- Three -->
 					<section id="three">
-						<h2>Get In Touch</h2>
-						<p>Exploring opportunities in robotics and related fields — let’s get in touch.</p>
-							<div class="row">
+						<h2>🔥Let's Build Something Together</h2>
+						<p>- I'm currently seeking full-time or internship roles in the field of robotics, with a strong focus on computer vision, perception systems, and autonomous navigation. 
+						<br><br>
+						- I'm especially excited by teams building intelligent machines that interpret the world through vision - from drones and mobile robots to industrial automation systems.
+						<br><br>
+						- If you're working on robotics that see, decide, and act - I'd love to contribute.
+						</p>
+						<div class="row">
 								<div class="col-4 col-12-small"> <!-- Now on the left -->
 									<ul class="labeled-icons">
 										<li>
