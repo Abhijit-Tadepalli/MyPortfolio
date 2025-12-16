@@ -1,6 +1,264 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
 
+/* --- Tech theme variables & UI restyles --- */
+:root {
+	--bg: #071427; /* deep navy */
+	--bg-2: #0b2133;
+	--surface: rgba(255,255,255,0.03);
+	--surface-2: #0f2433;
+	--text: #e6f6ff;
+	--muted: #9fb0c3;
+	--accent: #00e5ff; /* neon cyan */
+	--accent-strong: #00a8d9;
+	--accent-2: #7b61ff;
+	--glass: rgba(255,255,255,0.03);
+	--card-shadow: 0 12px 40px rgba(2,8,15,0.6);
+	--card-glow: 0 8px 48px rgba(0,229,255,0.06);
+	--radius: 12px;
+	--gap: 1.5rem;
+}
+
+html, body { height: 100%; }
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	background: radial-gradient(1200px 600px at 10% 10%, rgba(0,229,255,0.03), transparent), linear-gradient(180deg,var(--bg), var(--bg-2));
+	color: var(--text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 { color: var(--text); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: 1.6rem; margin-bottom: 0.75rem; }
+p { color: var(--muted); }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-strong); text-decoration: underline; }
+
+/* Primary buttons: neon gradient */
+.button, input[type="submit"], button {
+	background: linear-gradient(90deg,var(--accent), var(--accent-2));
+	color: #00121a;
+	border: none;
+	padding: 0.6rem 1rem;
+	border-radius: 10px;
+	font-weight: 700;
+	box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 0 18px rgba(0,229,255,0.06) inset;
+	cursor: pointer;
+}
+.button.secondary { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.04); }
+.button:hover { transform: translateY(-2px); }
+
+/* Navbar */
+#navbar { background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent); position: sticky; top: 0; z-index: 999; padding: 0.75rem 1rem; backdrop-filter: blur(6px); }
+#navbar ul { display:flex; gap: 1rem; justify-content: center; }
+#navbar li a { color: var(--text); font-weight: 700; padding: 6px 12px; border-radius: 10px; }
+#navbar li a:hover { background: rgba(0,229,255,0.06); color: var(--accent-strong); }
+
+/* Content surface */
+.inner { background: transparent; }
+
+/* Card surface */
+.card-surface { background: var(--surface-2); border-radius: var(--radius); box-shadow: var(--card-shadow); border: 1px solid rgba(255,255,255,0.02); }
+
+/* Images and videos */
+img, video { display:block; max-width:100%; height:auto; border-radius: 8px; }
+
+/* Form elements */
+input, textarea, select {
+	background: rgba(255,255,255,0.02);
+	color: var(--text);
+	border: 1px solid rgba(255,255,255,0.03);
+	padding: 0.6rem 0.75rem;
+	border-radius: 8px;
+}
+
+/* Footer */
+#footer { color: var(--muted); background: transparent; }
+
+/* Subtle headings */
+.major h2 { color: #dff6ff; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+
+/* --- End tech theme block --- */
+
+/* ==========================
+	 Global theme overrides
+	 (placed at end so it overrides earlier rules)
+	 Forces dark/tech theme across the site
+	 ========================== */
+
+:root {
+	--bg: #071427;
+	--bg-2: #0b2133;
+	--surface-2: #0f2433;
+	--text: #e6f6ff;
+	--muted: #9fb0c3;
+	--accent: #00e5ff;
+}
+
+html, body { height: 100%; }
+
+/* Force global background and base text color */
+html, body {
+	background: radial-gradient(1200px 600px at 10% 10%, rgba(0,229,255,0.03), transparent), linear-gradient(180deg,var(--bg), var(--bg-2)) !important;
+	color: var(--text) !important;
+}
+
+/* Navbar: make transparent and match theme */
+#navbar, header#navbar, nav#navbar {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+/* Ensure site header/left panel (if present) doesn't show white */
+#header, .left, .sidebar {
+	background: transparent !important;
+	color: var(--text) !important;
+}
+
+/* Main content surface */
+#main, #main .inner, section, .inner {
+	background: transparent !important;
+	color: var(--text) !important;
+}
+
+/* Cards and project items */
+.card-surface, .work-item, .project-card, .box.alt {
+	background: var(--surface-2) !important;
+	color: var(--text) !important;
+	border: 1px solid rgba(255,255,255,0.03) !important;
+	box-shadow: 0 10px 40px rgba(2,8,15,0.6) !important;
+}
+
+.work-item h3, .work-item h3 a, .project-link { color: var(--text) !important; }
+.work-item h3 a:hover, .project-link:hover { background: rgba(0,229,255,0.06) !important; color: var(--accent-strong) !important; }
+
+/* Buttons and inputs */
+button, .button, input[type=submit], .btn {
+	background: linear-gradient(90deg,var(--accent), #7b61ff) !important;
+	color: #00121a !important;
+	border: none !important;
+}
+
+input, textarea, select {
+	background: rgba(255,255,255,0.02) !important;
+	color: var(--text) !important;
+	border: 1px solid rgba(255,255,255,0.03) !important;
+}
+
+/* Poptrox / lightbox */
+.poptrox-popup, .poptrox-popup .caption, .poptrox-popup .loader {
+	background: var(--surface-2) !important;
+	color: var(--text) !important;
+}
+
+/* Footer */
+#footer, footer#footer {
+	background: transparent !important;
+	color: var(--muted) !important;
+}
+
+/* Links */
+a, a:visited { color: var(--accent) !important; }
+
+/* Make sure images/videos have subtle rounded corners */
+img, video { border-radius: 8px !important; }
+
+/* Minor spacing polish */
+.work-item { padding: 1.25rem !important; }
+
+/* Provide strong contrast for headings inside sections */
+section h2, .major h2 { color: #dff6ff !important; }
+
+/* End overrides */
+
+/* ==========================
+	 Clean theme: final override
+	 - refined slate theme with teal accent
+	 - centers main content and aligns colored surfaces
+	 - placed at file end to override earlier conflicting rules
+	 ========================== */
+
+:root {
+	--clean-bg: #0b1220; /* deep slate */
+	--clean-surface: #0f1724; /* panels */
+	--clean-surface-2: #111827;
+	--clean-text: #e6eef6;
+	--clean-muted: #9aa7b6;
+	--clean-accent: #2dd4bf; /* teal */
+	--clean-accent-2: #38bdf8;
+	--clean-radius: 12px;
+}
+
+/* Force page background to a subtle, single-direction gradient */
+html, body {
+	background: linear-gradient(180deg, var(--clean-bg) 0%, #071323 60%) !important;
+	color: var(--clean-text) !important;
+}
+
+/* Center main content and cap width for clean alignment */
+#main {
+	margin: 0 auto !important;
+	max-width: 1100px !important;
+	padding: 5rem 2rem !important;
+	width: auto !important;
+}
+
+/* Make section surfaces transparent so backgrounds align uniformly */
+section, .inner, #main > section {
+	background: transparent !important;
+	padding: 2rem 0 !important;
+}
+
+/* Navbar: light translucent bar with centered items */
+#navbar {
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent) !important;
+	border-bottom: 1px solid rgba(255,255,255,0.02) !important;
+	padding: 0.65rem 1rem !important;
+}
+
+#navbar ul { justify-content: center !important; }
+
+/* Cards and project items use same surface color for consistency */
+.card-surface, .work-item, .project-card, .box.alt {
+	background: linear-gradient(180deg, var(--clean-surface) 0%, var(--clean-surface-2) 100%) !important;
+	border: 1px solid rgba(255,255,255,0.03) !important;
+	box-shadow: 0 12px 40px rgba(2,6,23,0.6) !important;
+	color: var(--clean-text) !important;
+}
+
+/* Project grid: keep centered and consistent spacing */
+#two .row { gap: 2rem !important; justify-content: center !important; }
+#two .work-item { width: calc(50% - 2rem) !important; max-width: 520px !important; }
+
+/* Titles and links: use teal accent */
+.work-item h3 a, .project-link, a { color: var(--clean-text) !important; }
+.work-item h3 a:hover, .project-link:hover { color: var(--clean-accent) !important; }
+
+/* Buttons */
+.button, button, input[type="submit"] { background: linear-gradient(90deg, var(--clean-accent), var(--clean-accent-2)) !important; color: #00121a !important; }
+
+/* Footer adjustments */
+#footer { background: transparent !important; color: var(--clean-muted) !important; }
+
+/* Make sure white blocks from legacy styles are neutralized */
+*[style*="background: #fff"], *[style*="background:#fff"] { background: transparent !important; }
+
+/* Reduce heavy box backgrounds on small screens for clarity */
+@media (max-width: 980px) {
+	#two .work-item { width: calc(100% - 2rem) !important; }
+	#main { padding: 3rem 1rem !important; }
+}
+
+/* End clean theme override */
+
 /*
 	Strata by HTML5 UP
 	html5up.net | @ajlkn
@@ -156,61 +414,68 @@ input, select, textarea {
 }
 
 
-/* Timeline Cards */
+/* Experience cards (vertical stacked layout) */
 .timeline-wrapper {
-  position: relative;
-  padding-left: 2rem;
+	display: block;
+	margin: 0 0 2rem 0;
 }
 
 .timeline {
-  position: relative;
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+	overflow-x: auto;
+	padding: 1rem 0 1rem 0;
+	-webkit-overflow-scrolling: touch;
+	scroll-snap-type: x mandatory;
 }
 
-.timeline-line {
-  position: absolute;
-  top: 24px; /* aligns with center of first logo */
-  bottom: 60px; /* stops at center of last logo */
-  left: 65px;  /* centers on 48px-wide logo */
-  width: 2px;
-  background-color: #ccc;
-  z-index: 0;
-  transition: all 0.3s ease;
-}
+/* hide the old vertical line if present */
+.timeline-line { display: none !important; }
 
 .timeline-card {
-  position: relative;
-  padding-left: 80px; /* space for large logo */
-  margin-bottom: 3rem;
+	display: flex;
+ 	flex-direction: column;
+ 	align-items: flex-start;
+ 	min-width: 320px;
+ 	max-width: 420px;
+ 	flex: 0 0 auto;
+ 	padding: 1.25rem;
+ 	border-radius: 12px;
+ 	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+ 	border: 1px solid rgba(255,255,255,0.03);
+ 	box-shadow: 0 10px 30px rgba(2,6,23,0.45);
+ 	scroll-snap-align: start;
 }
+
 
 .timeline-logo {
-  position: absolute;
-  left: 10px; /* centers 48px logo around line at 34px */
-  top: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid white;
-  box-shadow: 0 0 0 2px #007bff;
-  background-color: white;
-  z-index: 1;
+	position: relative;
+	width: 64px;
+	height: 64px;
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid rgba(255,255,255,0.03);
+	background: rgba(255,255,255,0.02);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0.6rem;
 }
 
-.timeline-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.timeline-logo img { width: 48px; height: 48px; object-fit: contain; }
 
-.timeline-content {
-  position: relative;
-  z-index: 1;
-}
+.timeline-content { width: 100%; }
 
-.timeline-date {
-  font-size: 0.9rem;
-  color: #666;
+.timeline-date { font-size: 0.9rem; color: var(--clean-muted, #9aa7b6); margin-bottom: 0.35rem; }
+
+.timeline-card h3 { margin: 0 0 0.5rem 0; color: var(--clean-text, #e6eef6); }
+
+.timeline-card ul { margin: 0; padding-left: 1.25rem; color: var(--clean-muted, #9aa7b6); }
+
+@media (max-width: 980px) {
+	.timeline-card { flex-direction: column; align-items: stretch; }
+	.timeline-logo { margin-bottom: 0.5rem; }
 }
 
 
@@ -239,6 +504,58 @@ input, select, textarea {
 			-ms-transition: none !important;
 			transition: none !important;
 		}
+
+/* Projects: improved card layout and centered media/title */
+#two .row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+#two .work-item {
+	background: #ffffff;
+	border-radius: 12px;
+	padding: 1rem 1rem 1.25rem 1rem;
+	box-shadow: 0 8px 24px rgba(16,24,40,0.06);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	transition: transform .18s ease, box-shadow .18s ease;
+	width: calc(50% - 2rem);
+	max-width: 520px;
+}
+
+#two .work-item:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 20px 50px rgba(16,24,40,0.12);
+}
+
+#two .work-item .image.fit.thumb {
+	width: 100%;
+	max-width: 360px;
+	margin: 0 0 0.75rem 0;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+#two .work-item video.fit.thumb { width: 100%; height: auto; display: block; }
+
+#two .work-item h3 { margin: 0.4rem 0 0 0; font-size: 1.05rem; line-height: 1.25; }
+
+#two .work-item h3 a { color: #1f2937; text-decoration: none; display: inline-block; padding: 6px 8px; border-radius: 6px; font-weight: 600; }
+
+#two .work-item h3 a:hover { background: rgba(0,122,204,0.95); color: #fff; }
+
+@media (max-width: 980px) {
+	#two .work-item { width: calc(100% - 2rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#two .work-item, #two .work-item:hover { transition: none; transform: none; }
+}
 
 	body, input, select, textarea {
 		color: #000000;
@@ -475,6 +792,47 @@ body {
 		@media screen and (max-width: 980px) {
 
 			.container {
+
+		/* Stylish scrollbars for Projects and Experience scrollers */
+		/* WebKit (Chrome, Edge, Safari) */
+		#two > .row::-webkit-scrollbar,
+		.timeline::-webkit-scrollbar {
+			height: 10px;
+		}
+
+		#two > .row::-webkit-scrollbar-track,
+		.timeline::-webkit-scrollbar-track {
+			background: transparent;
+			margin: 6px 0;
+		}
+
+		#two > .row::-webkit-scrollbar-thumb,
+		.timeline::-webkit-scrollbar-thumb {
+			background: linear-gradient(180deg, rgba(0,229,255,0.14), rgba(0,122,204,0.22));
+			border-radius: 999px;
+			border: 2px solid rgba(0,0,0,0);
+			background-clip: padding-box;
+			box-shadow: 0 2px 8px rgba(2,6,23,0.45) inset;
+		}
+
+		#two > .row::-webkit-scrollbar-thumb:hover,
+		.timeline::-webkit-scrollbar-thumb:hover {
+			background: linear-gradient(180deg, rgba(0,229,255,0.22), rgba(0,122,204,0.34));
+		}
+
+		/* Firefox */
+		#two > .row,
+		.timeline {
+			scrollbar-width: thin;
+			scrollbar-color: rgba(0,122,204,0.7) transparent;
+		}
+
+		/* Reduced-motion / accessible variant: thicker, more visible thumb on focus */
+		#two > .row:focus::-webkit-scrollbar-thumb,
+		.timeline:focus::-webkit-scrollbar-thumb {
+			height: 12px;
+		}
+
 				width: 100% !important;
 				max-width: 100% !important;
 			}
@@ -2881,10 +3239,10 @@ body {
 /* Main */
 
 	#main {
-		margin-left: 35%;
+		margin-left: 0;
 		max-width: none;
-		padding: 8em 4em 4em 4em;
-		width: calc(100% - 35%);
+		padding: 4em 4em;
+		width: 100%;
 	}
 
 		#main > section {
@@ -2900,6 +3258,11 @@ body {
 			}
 
 /* Poptrox */
+
+/* Hide old left fixed header/sidebar (removed from HTML) */
+#header {
+    display: none !important;
+}
 
 	@-moz-keyframes spin {
 		0% {
@@ -3418,3 +3781,326 @@ body {
 			}
 
 	}
+
+/* Projects: force horizontal, scrollable card row (scoped override) */
+/* Placed at EOF to override legacy .row rules */
+#two > .row {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 1.5rem;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	scroll-snap-type: x mandatory;
+	padding-bottom: 1rem;
+	padding-left: 1.5rem !important; /* breathing room */
+	scroll-padding-left: 1.5rem !important;
+	justify-content: flex-start !important; /* override legacy centering */
+	margin-left: 0 !important; /* neutralize global row negative margins */
+	box-sizing: border-box;
+}
+
+#two > .row .work-item {
+	flex: 0 0 320px; /* card width */
+	width: auto !important;
+	max-width: 320px;
+	scroll-snap-align: start;
+	margin: 0 !important;
+}
+
+#two > .row .work-item .image.fit.thumb,
+#two > .row .work-item video.fit.thumb {
+	max-width: 100%;
+	height: auto;
+}
+
+@media screen and (max-width: 980px) {
+	#two > .row { gap: 1rem; }
+	#two > .row .work-item { flex: 0 0 80%; max-width: 80%; }
+}
+
+/* Robust scrollbar styles (reapplied) */
+/* High-specificity, placed at EOF to override user/legacy rules */
+/* WebKit-based browsers (Chrome, Edge, Safari) */
+#two > .row::-webkit-scrollbar,
+.timeline::-webkit-scrollbar,
+.timeline-wrapper::-webkit-scrollbar {
+	height: 12px !important;
+}
+
+#two > .row::-webkit-scrollbar-track,
+.timeline::-webkit-scrollbar-track,
+.timeline-wrapper::-webkit-scrollbar-track {
+	background: transparent !important;
+}
+
+#two > .row::-webkit-scrollbar-thumb,
+.timeline::-webkit-scrollbar-thumb,
+.timeline-wrapper::-webkit-scrollbar-thumb {
+	background: linear-gradient(180deg, rgba(0,122,204,0.28), rgba(0,229,255,0.18)) !important;
+	border-radius: 999px !important;
+	border: 3px solid rgba(0,0,0,0) !important;
+	background-clip: padding-box !important;
+}
+
+#two > .row::-webkit-scrollbar-thumb:hover,
+.timeline::-webkit-scrollbar-thumb:hover,
+.timeline-wrapper::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(180deg, rgba(0,122,204,0.46), rgba(0,229,255,0.32)) !important;
+}
+
+/* Firefox */
+#two > .row,
+.timeline,
+.timeline-wrapper {
+	scrollbar-width: thin !important;
+	scrollbar-color: rgba(0,122,204,0.7) transparent !important;
+}
+
+/* Fallback: ensure visible space for overlay scrollbars on some OS */
+#two > .row, .timeline { padding-bottom: 14px !important; }
+
+/* Typography & Palette Override (Inter + modern palette) */
+:root {
+	--app-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	--text-color: #0b1220; /* body text */
+	--heading-color: #071633; /* headings */
+	--accent-color: #0077cc; /* links/buttons */
+	--accent-strong: #005fa3;
+	--muted-color: #6b7280;
+	--surface-color: #ffffff;
+}
+
+html, body {
+	font-family: var(--app-font) !important;
+	color: var(--text-color) !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: var(--surface-color) !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+	color: var(--heading-color) !important;
+	font-weight: 700 !important;
+	line-height: 1.15 !important;
+	letter-spacing: -0.01em !important;
+}
+
+/* Links & accents */
+a, .project-link, .work-item h3 a {
+	color: var(--accent-color) !important;
+	text-decoration: none !important;
+}
+a:hover, .project-link:hover { color: var(--accent-strong) !important; }
+
+/* Muted text */
+.muted, .clean-muted, p.small, .skill-name { color: var(--muted-color) !important; }
+
+/* Buttons */
+.button, button, input[type="submit"] {
+	background: linear-gradient(90deg, var(--accent-color), var(--accent-strong)) !important;
+	color: #ffffff !important;
+	border: none !important;
+	border-radius: 8px !important;
+	padding: 0.55em 1em !important;
+	font-weight: 600 !important;
+}
+
+/* Ensure cards contrast on white background */
+.card-surface, .work-item, .project-card, .box.alt {
+	background: #ffffff !important;
+	border: 1px solid rgba(11,18,32,0.06) !important;
+	box-shadow: 0 8px 24px rgba(11,18,32,0.04) !important;
+	color: var(--text-color) !important;
+}
+
+/* Small screens adjustments */
+@media (max-width: 480px) {
+	h1, h2, h3 { font-weight: 600 !important; }
+	.button, button { padding: 0.5em 0.9em !important; }
+}
+
+/* Section heading standardization: prominent, black, responsive */
+#main > section h2,
+section h2,
+.major h2 {
+	font-family: var(--app-font) !important;
+	font-size: 2rem !important; /* desktop size */
+	line-height: 1.08 !important;
+	font-weight: 700 !important;
+	color: #000000 !important; /* pure black as requested */
+	margin-bottom: 0.75rem !important;
+	letter-spacing: -0.01em !important;
+}
+
+@media (max-width: 980px) {
+	#main > section h2,
+	section h2,
+	.major h2 { font-size: 1.6rem !important; }
+}
+
+@media (max-width: 480px) {
+	#main > section h2,
+	section h2,
+	.major h2 { font-size: 1.4rem !important; }
+}
+
+/* About section: photo placeholder and ensure content is black */
+#one .about-grid {
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+	max-width: 1100px;
+	margin: 0 auto 1.25rem auto;
+}
+
+#one .about-photo {
+	flex: 0 0 220px;
+}
+
+#one .about-photo img {
+	width: 220px;
+	height: 220px;
+	object-fit: cover;
+	border-radius: 12px;
+	border: 1px solid rgba(11,18,32,0.06) !important;
+	box-shadow: 0 8px 24px rgba(11,18,32,0.04) !important;
+	display: block;
+}
+
+#one .about-text {
+	flex: 1 1 auto;
+}
+
+/* Ensure all about section text is black for contrast */
+#one, #one .about-text, #one p, #one li {
+	color: #000000 !important;
+}
+
+@media (max-width: 980px) {
+	#one .about-grid { flex-direction: column; gap: 1rem; }
+	#one .about-photo { flex: 0 0 auto; }
+	#one .about-photo img { width: 160px; height: 160px; }
+}
+
+/* Make all body text black, except the Experience section */
+body {
+	color: #000000 !important;
+}
+
+/* Preserve a non-black (muted) color inside Experience */
+#Experience, #Experience * {
+	/* will be overridden below by the global rule; preserve if needed later */
+}
+
+/* Final override: force all textual content site-wide to black */
+/* This selector uses ID-level specificity and !important to ensure it wins */
+html, body, #main, #main * {
+	color: #000000 !important;
+}
+
+/* Exceptions: if you want buttons or icon labels to remain different, we can add them here. */
+
+/* Footer links and icons: ensure everything in footer is black */
+#footer, footer#footer, #footer .inner, #footer .icons, #footer .copyright {
+	color: #000000 !important;
+}
+
+#footer a, #footer a:link, #footer a:visited, #footer a:hover, #footer a:active,
+#footer .icons a, #footer .icons a:link, #footer .icons a:visited, #footer .icons a:hover {
+	color: #000000 !important;
+	opacity: 1 !important;
+}
+
+/* If FontAwesome sets its own color via .brands classes, force the icon pseudo-element color too */
+#footer .icons a[class*="fa-"], #footer .icons a[class*="icon"] {
+	color: #000000 !important;
+}
+
+/* Floating navbar: centered pill that only spans content width */
+/* High-specificity override placed at EOF */
+#navbar {
+	position: fixed !important;
+	top: 1rem !important;
+	left: 50% !important;
+	transform: translateX(-50%) !important;
+	display: inline-flex !important;
+	align-items: center !important;
+		/* Stronger blue matching scrollbar but more opaque so it appears colored */
+		background: linear-gradient(180deg, rgba(0,122,204,0.95), rgba(0,229,255,0.85)) !important;
+		background-color: rgba(0,122,204,0.95) !important;
+	color: #ffffff !important;
+	padding: 0.4rem 0.75rem !important;
+	border-radius: 999px !important;
+	box-shadow: 0 10px 30px rgba(0,122,204,0.12) !important;
+	z-index: 2000 !important;
+	width: auto !important;
+	max-width: none !important;
+	min-width: 260px !important;
+	white-space: nowrap !important;
+	backdrop-filter: blur(10px) saturate(140%) !important;
+	-webkit-backdrop-filter: blur(10px) saturate(140%) !important;
+	border: 1px solid rgba(0,122,204,0.22) !important;
+	background-clip: padding-box !important;
+}
+
+#navbar ul {
+	display: flex !important;
+	gap: 0.6rem !important;
+	margin: 0 auto !important;
+	padding: 0 0.25rem !important;
+	list-style: none !important;
+	align-items: center !important;
+	justify-content: center !important;
+}
+
+#navbar li a {
+	color: #ffffff !important;
+	padding: 0.45rem 0.8rem !important;
+	border-radius: 8px !important;
+	font-weight: 600 !important;
+	text-decoration: none !important;
+	display: inline-block !important;
+}
+
+#navbar li a:hover, #navbar li a:focus {
+	background: rgba(255,255,255,0.12) !important;
+	color: #ffffff !important;
+}
+
+/* Responsive: on very small screens stretch a bit and allow horizontal scroll */
+@media (max-width: 520px) {
+	#navbar { left: 1rem !important; right: 1rem !important; transform: none !important; width: auto !important; }
+	#navbar ul { overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 0.4rem !important; }
+	#navbar li a { padding: 0.4rem 0.6rem !important; }
+}
+
+
+
+
+
+
+/* Global background override: set site background to white */
+/* Placed at EOF with high specificity and !important to override theme blocks */
+html, body {
+	background: #ffffff !important;
+	background-color: #ffffff !important;
+	color: #0b1220 !important;
+}
+
+/* Neutralize large decorative gradients/overlays that may still be present */
+body::before, body::after, html::before, html::after {
+	background: transparent !important;
+}
+
+/* Ensure inner content surfaces remain readable on white background */
+.inner, .card-surface, .work-item, .project-card, .box.alt {
+	background: #ffffff !important;
+	border-color: rgba(0,0,0,0.06) !important;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+	color: #0b1220 !important;
+}
+
+/* Revert any rules that force transparent for explicit white backgrounds */
+*[style*="background: transparent"] { background: transparent !important; }
+

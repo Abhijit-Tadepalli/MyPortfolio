@@ -11,44 +11,38 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		  <style>
-			video.fit.thumb {
-			width: 100%;
-			height: auto;
-			display: block;
-			object-fit: cover;
-			border-radius: inherit;
-			}
-  		</style>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+	      <style>
+	      	/* Limit video player size and center thumbnails */
+	      	.image.fit.thumb {
+	      		max-width: 480px;
+	      		margin: 0 auto;
+	      	}
+	      	video.fit.thumb {
+	      		width: 100%;
+	      		max-width: 480px;
+	      		height: auto;
+	      		display: block;
+	      		object-fit: cover;
+	      		border-radius: inherit;
+	      	}
+	 	  	</style>
 	</head>
-	<nav id="navbar">
-	<ul>
-		<li><a href="#one">About</a></li>
-		<li><a href="#two">Projects</a></li>
-		<li><a href="#Experience">Experience</a></li>
-		<li><a href="#skills">Skills</a></li>
-		<li><a href="#three">Contact</a></li>
-	</ul>
-	</nav>
+	</head>
 	<body class="is-preload">
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="#" class="image avatar"><img src="images/abhijitPic.jpg" alt="" /></a>
-					<h1><b>Vamsi Sai Abhijit Tadepalli</b></h1>
-					
-						<p>
-						<strong>M.S. in Robotics and Autonomous Systems</strong><br>
-						Arizona State University, Tempe<br>
-						<em>May 2026</em><br><br>
+		<nav id="navbar" role="navigation" aria-label="Main Navigation" style="background: linear-gradient(180deg, rgba(0,122,204,0.95), rgba(0,229,255,0.85)) !important;">
+		<ul>
+			<li><a href="#one">About</a></li>
+			<li><a href="#two">Projects</a></li>
+			<li><a href="#Experience">Experience</a></li>
+			<li><a href="#skills">Skills</a></li>
+			<li><a href="#three">Contact</a></li>
+		</ul>
+		</nav>
 
-						<strong>B.Tech in Mechanical Engineering</strong><br>
-						GITAM University, Hyderabad<br>
-						<em>June 2024</em>
-						</p>
-				</div>
-			</header>
+		<!-- Header -->
+
 
 		<!-- Main -->
 			<div id="main">
@@ -56,25 +50,35 @@
 				<!-- One -->
 				<section id="one">
 				<header class="major">
-					<h2 style="color: black;">About Me</h2>
+					<h2>About Me</h2>
 				</header>
-				<p>
-					Hi, I’m Vamsi Sai Abhijit Tadepalli — a robotics engineer blending systems thinking with a bit of caffeine-fueled determination. I’m currently pursuing my M.S. in Robotics at ASU, where I specialize in <strong>computer vision, perception, and autonomy</strong> for intelligent robotic systems.
-				</p>
 
-				<p>
-					At the <strong>IRIS Lab</strong>, I contribute to vision-based tracking systems, currently refactoring and extending the <em>TwinTrack</em> framework for dynamic object tracking. My experience spans real-time control of drones for precision landings, and deep learning pipelines for industrial defect detection at <strong>BARC</strong>.
-				</p>
+				<div class="about-grid">
+					<div class="about-photo">
+						<!-- Replace images/me.jpg with your photo file -->
+						<img id="about-photo" src="images/abhijitPic.jpg" alt="Your photo" />
+					</div>
 
-				<p>
-					I enjoy working at the intersection of software and the physical world — building systems that not only run in simulation, but also survive it. My toolkit includes <strong>Python, C++, ROS2, OpenCV, and Linux</strong>, and my mindset is tuned for clean, modular, and testable code.
-				</p>
+					<div class="about-text">
+						<p>
+							Hi, I’m Vamsi Sai Abhijit Tadepalli — a robotics engineer blending systems thinking with a bit of caffeine-fueled determination. I’m currently pursuing my M.S. in Robotics at ASU, where I specialize in <strong>computer vision, perception, and autonomy</strong> for intelligent robotic systems.
+						</p>
+
+						<p>
+							At the <strong>IRIS Lab</strong>, I contribute to vision-based tracking systems, currently refactoring and extending the <em>TwinTrack</em> framework for dynamic object tracking. My experience spans real-time control of drones for precision landings, and deep learning pipelines for industrial defect detection at <strong>BARC</strong>.
+						</p>
+
+						<p>
+							I enjoy working at the intersection of software and the physical world — building systems that not only run in simulation, but also survive it. My toolkit includes <strong>Python, C++, ROS2, OpenCV, and Linux</strong>, and my mindset is tuned for clean, modular, and testable code.
+						</p>
+					</div>
+				</div>
 
 				</section>
 
 				<!-- Two -->
 					<section id="two">
-						<h2>Project Highlights</h2>
+						<h2>Projects</h2>
 						<div class="row">
 							<article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
@@ -83,14 +87,13 @@
 										Your browser does not support the video tag.
 									</video>
 								</div>
-								<h3>TwinTrack:Vision-Based SLAM & Tracking Framework</h3> 
-								<!-- show the screen where the blocks detected are being shown -->
-								<p>
-									Refactored and maintained TwinTrack’s codebase to improve clarity and support future research.<br><br>
-									i. Maintained and refactored the official TwinTrack codebase — a dual-branch tracking system integrating short-term and long-term visual cues<br><br>
-									ii. Added structured comments, cleaned legacy scripts, and resolved inconsistencies across modules for smoother execution<br><br>
-									iii. Improved readability, modularity, and extensibility in preparation for integration with new visual recognition pipelines
-								</p>
+								<h3><a href="#" class="project-link">TwinTrack:Vision-Based SLAM & Tracking Framework</a></h3>
+								<div class="project-desc" style="display:none;">
+									<p>Refactored and maintained TwinTrack’s codebase to improve clarity and support future research.</p>
+									<p>i. Maintained and refactored the official TwinTrack codebase — a dual-branch tracking system integrating short-term and long-term visual cues</p>
+									<p>ii. Added structured comments, cleaned legacy scripts, and resolved inconsistencies across modules for smoother execution</p>
+									<p>iii. Improved readability, modularity, and extensibility in preparation for integration with new visual recognition pipelines</p>
+								</div>
 							</article>
 							<article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
@@ -99,84 +102,48 @@
 										Your browser does not support the video tag.
 									</video>
 								</div>
-								<h3>Autonomous UAV for Target Tracking and Landing</h3> 
-								<!-- show the screen where the blocks detected are being shown -->
-								<p>
-									Developed a Simulink model for the Parrot Mambo Minidrone to autonomously track and land on a moving target.<br><br>
-									i. Tuned control parameters on the Parrot Mambo Minidrone to achieve stable flight with response times under 200 ms<br><br>
-									ii. Applied adaptive color thresholding for reliable target detection under lighting variations of up to ±30% intensity<br><br>
-									iii. Designed a sub-matrix vision algorithm enabling real-time tracking at 15 FPS and precision landings within ±10 cm of a moving target
-								</p>
+								<h3><a href="#" class="project-link">Autonomous UAV for Target Tracking and Landing</a></h3>
+								<div class="project-desc" style="display:none;">
+									<p>Developed a Simulink model for the Parrot Mambo Minidrone to autonomously track and land on a moving target.</p>
+									<p>i. Tuned control parameters on the Parrot Mambo Minidrone to achieve stable flight with response times under 200 ms</p>
+									<p>ii. Applied adaptive color thresholding for reliable target detection under lighting variations of up to ±30% intensity</p>
+									<p>iii. Designed a sub-matrix vision algorithm enabling real-time tracking at 15 FPS and precision landings within ±10 cm of a moving target</p>
+								</div>
 							</article>
 
 							<article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
 									<video autoplay muted loop playsinline class="fit thumb">
 										<source src="#" type="video/mp4">
-										<!-- Improve the video -->
 										Your browser does not support the video tag.
 									</video>
 								</div>
-								<h3>Autonomous Mobile Manipulation using SLAM-Enabled TurtleBot</h3>
-								<p>
-									Implemented SLAM for autonomous navigation on a TurtleBot with LiDAR and a 4-DOF robotic arm for pick-and-place tasks.<br><br>
-									i. Mapped ~40 m² environments with ±5 cm localization accuracy using 2D LiDAR SLAM<br><br>
-									ii. Achieved >85% success over 20+ autonomous navigation trials with dynamic obstacle handling<br><br>
-									iii. Executed pick-and-place tasks within a 1 m reach, averaging less that 1 min per cycle
-								</p>
+								<h3><a href="#" class="project-link">[PLACEHOLDER]</a></h3>
+								<div class="project-desc" style="display:none;">
+									<p>Implemented SLAM for autonomous navigation on a TurtleBot with LiDAR and a 4-DOF robotic arm for pick-and-place tasks.</p>
+									<p>i. Mapped ~40 m² environments with ±5 cm localization accuracy using 2D LiDAR SLAM</p>
+									<p>ii. Achieved &gt;85% success over 20+ autonomous navigation trials with dynamic obstacle handling</p>
+									<p>iii. Executed pick-and-place tasks within a 1 m reach, averaging less that 1 min per cycle</p>
+								</div>
+							</article>
+
+							<article class="col-6 col-12-xsmall work-item">
+								<div class="image fit thumb">
+									<video autoplay muted loop playsinline class="fit thumb">
+										<source src="#" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+								</div>
+								<h3><a href="#" class="project-link">[PLACEHOLDER]</a></h3>
+								<div class="project-desc" style="display:none;">
+									<p>Implemented SLAM for autonomous navigation on a TurtleBot with LiDAR and a 4-DOF robotic arm for pick-and-place tasks.</p>
+									<p>i. Mapped ~40 m² environments with ±5 cm localization accuracy using 2D LiDAR SLAM</p>
+									<p>ii. Achieved &gt;85% success over 20+ autonomous navigation trials with dynamic obstacle handling</p>
+									<p>iii. Executed pick-and-place tasks within a 1 m reach, averaging less that 1 min per cycle</p>
+								</div>
 							</article>
 
 							
-
-							<!-- <article class="col-6 col-12-xsmall work-item">
-								<div class="image fit thumb">
-									<video autoplay muted loop playsinline class="fit thumb">
-										<source src="images/omniWheeledRobot.mp4" type="video/mp4">
-										Your browser does not support the video tag.
-									</video>
-								</div>
-								<h3>Development of a Sensor-Guided 4-Wheel Omni-Drive Robot (Arduino Controlled)</h3>
-								<p>
-									Built an Arduino-controlled 4-wheeled omni-directional robot for holonomic motion and precise navigation.<br><br>
-									i. Implemented inverse kinematics for 4-wheel configuration, enabling full 360° translation with ±5° orientation accuracy<br><br>
-									ii. Programmed PID-based speed control to maintain target velocities up to 0.6 m/s with ±3% regulation error<br><br>
-									iii. Integrated ultrasonic and IR sensors for obstacle detection and task execution with sensor response times under 100 ms
-								</p>
-
-							</article> -->
-
-							<!-- <article class="col-6 col-12-xsmall work-item">
-								<div class="image fit thumb">
-									<video autoplay muted loop playsinline class="fit thumb">
-										<source src="images/overweightvideo.mp4" type="video/mp4">
-										Your browser does not support the video tag.
-									</video>
-								</div>
-								<h3>Simulink-Based Autonomous UAV for Target Tracking and Landing</h3>
-								<p>
-									Developed a vision-guided UAV using Simulink to autonomously track and land on a moving target.<br><br>
-									i.Tuned control parameters on the Parrot Mambo Minidrone to achieve stable, responsive flight behavior<br><br>
-									ii. Implemented adaptive color thresholding to ensure reliable target detection under varying lighting conditions<br><br>
-									iii. Designed a sub-matrix-based vision algorithm for real-time tracking and precision landing on dynamic targets
-								</p>
-							</article> -->
-
-							<!-- <article class="col-6 col-12-xsmall work-item">
-								<div class="image fit thumb">
-									<video autoplay muted loop playsinline class="fit thumb">
-										<source src="images/fmaeeditedvideo.mp4" type="video/mp4">
-										Your browser does not support the video tag.
-									</video>
-								</div>
-								<h3>Electric Mobility System <br> Prototyping</h3>
-								<p>
-									Designed and integrated an electric drive system using embedded controls, applying core principles of robotic mobility.<br><br>
-									i. Built a closed-loop throttle control using sensor feedback and microcontroller logic for precise actuator response<br><br>
-									ii. Integrated a battery pack with BMS, gaining hands-on experience in safe power delivery for mobile systems<br><br>
-									iii. Modeled and assembled drivetrain components from CAD to hardware, bridging design and physical prototyping
-								</p>
-
-							</article> -->
 						</div>
 					</section>
 
@@ -277,9 +244,9 @@
 							<span>Simulink</span>
 							</div>
 							<div class="skill-item">
-							<img src="images/Google_JAX_logo.svg.png" alt="JAX" class="skill-logo">
+							<!-- <img src="images/Google_JAX_logo.svg.png" alt="JAX" class="skill-logo">
 							<span>JAX</span>
-							</div>
+							</div> -->
 							
 						</div>
 						</section>
@@ -325,7 +292,7 @@
 
 				<!-- Three -->
 					<section id="three">
-						<h2>🔥Let's Build Something Together</h2>
+						<h2>Contact</h2>
 						<p>
 						I'm actively exploring full-time and internship opportunities in robotics, particularly in computer vision, perception, and autonomous navigation. <br><br>
 						I’m driven by building systems that interpret the world visually — whether in drones, mobile platforms, or industrial automation. <br><br>
