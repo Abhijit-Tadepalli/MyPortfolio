@@ -41,10 +41,32 @@
 	      		object-fit: cover;
 	      		border-radius: inherit;
 	      	}
-	 	  	</style>
+
+	        /* Critical fallback styles: applied inline so basic layout works even if main.css fails to load (useful on GitHub Pages troubleshooting) */
+	        html, body { box-sizing: border-box; font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+	        *, *:before, *:after { box-sizing: inherit; }
+	        img { max-width: 100%; height: auto; display: block; }
+	        .about-photo img, #about-photo { max-width: 220px; width: 100%; height: auto; border-radius: 12px; }
+	        .about-grid { display:flex; gap:1.5rem; align-items:center; max-width:1100px; margin:0 auto; }
+	        .about-text { color:#000; }
+	        #main { padding: 2rem 1rem; max-width: 1100px; margin: 0 auto; }
+	        /* Ensure project videos/cards don't overflow */
+	        .work-item, article { box-sizing: border-box; max-width: 360px; }
+	        /* Navbar fallback styling if external CSS missing */
+	        #navbar { position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); background: rgba(0,122,204,0.9); color: #fff; padding: 0.4rem 0.75rem; border-radius: 999px; z-index:2000; }
+	      </style>
 	</head>
 	</head>
 	<body class="is-preload">
+
+		<!-- Portfolio under construction banner -->
+		<div id="construction-banner" role="region" aria-label="Site status banner">
+			<div class="banner-inner">
+				<span class="banner-emoji">🚧</span>
+				<strong>Portfolio under construction</strong>
+				<span class="banner-text">Some pages may look different while I'm tinkering. Thanks for stopping by!</span>
+			</div>
+		</div>
 
 		<nav id="navbar" role="navigation" aria-label="Main Navigation" style="background: linear-gradient(180deg, rgba(0,122,204,0.95), rgba(0,229,255,0.85)) !important;">
 		<ul>
@@ -680,6 +702,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+		<!-- construction banner is now non-dismissible -->
 
 	</body>
 </html>
