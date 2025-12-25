@@ -257,6 +257,119 @@ section, .inner, #main > section {
 	#main { padding: 3rem 1rem !important; }
 }
 
+# =====================================
+# Enforce constant 4:3 aspect ratio for project videos
+# - high-specificity + !important to override inline styles
+# - container uses aspect-ratio so height is computed from width
+# - videos fill the container via object-fit: cover
+# =====================================
+#two > .row .work-item .image.fit.thumb,
+#two .work-item .image.fit.thumb {
+	width: 100% !important;
+	max-width: 640px !important; /* cap width but allow scaling */
+	aspect-ratio: 4 / 3 !important;
+	overflow: hidden !important;
+	margin: 0 auto !important;
+	height: auto !important; /* height derived from aspect-ratio */
+}
+
+#two > .row .work-item .image.fit.thumb video,
+#two > .row .work-item video.fit.thumb,
+#two .work-item video.fit.thumb {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	display: block !important;
+}
+
+@media (max-width: 420px) {
+	/* On very narrow screens, ensure videos don't overflow viewport */
+	#two > .row .work-item .image.fit.thumb,
+	#two .work-item .image.fit.thumb {
+		max-width: 100% !important;
+	}
+}
+
+/* Project count badge styling */
+#project-count {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 0.6rem;
+	padding: 0.18rem 0.6rem;
+	font-size: 0.95rem;
+	font-weight: 700;
+	color: var(--clean-bg, #0b1220) !important;
+	background: linear-gradient(180deg, rgba(45,212,191,0.12), rgba(45,212,191,0.06)) !important;
+	border: 1px solid rgba(45,212,191,0.18) !important;
+	border-radius: 999px !important;
+	box-shadow: 0 6px 18px rgba(2,6,23,0.12) !important;
+}
+
+@media (max-width: 600px) {
+	#project-count { margin-left: 0.4rem; padding: 0.12rem 0.45rem; font-size: 0.9rem; }
+}
+
+
+/* ========================
+   Centered project modal
+   ======================== */
+#project-modal-backdrop {
+	position: fixed !important;
+	inset: 0 !important;
+	background: rgba(2,8,15,0.78) !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	z-index: 4000 !important;
+	padding: 2rem !important;
+}
+
+.project-modal {
+	background: linear-gradient(180deg, var(--clean-surface) 0%, var(--clean-surface-2) 100%) !important;
+	color: var(--clean-text) !important;
+	border-radius: 14px !important;
+	max-width: 1100px !important;
+	width: 1000px !important;
+	height: 640px !important;
+	box-shadow: 0 20px 60px rgba(2,6,23,0.6) !important;
+	padding: 1.25rem !important;
+	display: flex !important;
+	flex-direction: column !important; /* stack video over text */
+	gap: 0.75rem !important;
+	align-items: stretch !important;
+	position: relative !important;
+	transform: translateY(14px) !important;
+	opacity: 0 !important;
+	transition: transform 220ms ease, opacity 220ms ease !important;
+	overflow: auto !important; /* entire modal scrolls as a single page */
+}
+
+.project-modal.show { transform: none !important; opacity: 1 !important; }
+
+.project-modal .modal-media { flex: 0 0 auto !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 0.75rem 1rem !important; box-sizing: border-box !important; overflow: hidden !important; background: transparent !important; }
+.project-modal .modal-body { flex: 1 1 auto !important; overflow: visible !important; height: auto !important; box-sizing: border-box !important; padding: 1rem !important; }
+
+.project-modal video { width: auto !important; max-width: 90% !important; height: auto !important; max-height: 220px !important; aspect-ratio: 16 / 9 !important; object-fit: cover !important; background: #000 !important; border-radius: 8px !important; display: block !important; margin: 0 auto 1rem auto !important; }
+
+.project-modal .modal-close {
+	position: absolute !important;
+	right: 12px !important;
+	top: 12px !important;
+	background: rgba(255,255,255,0.02) !important;
+	border: 1px solid rgba(255,255,255,0.03) !important;
+	color: var(--clean-text) !important;
+	padding: 0.35rem 0.6rem !important;
+	border-radius: 8px !important;
+	cursor: pointer !important;
+}
+
+@media (max-width: 820px) {
+	.project-modal { flex-direction: column !important; padding: 1rem !important; width: calc(100% - 2rem) !important; height: auto !important; max-height: 90vh !important; }
+	.project-modal .modal-media, .project-modal .modal-body { width: 100% !important; flex: 0 0 auto !important; height: auto !important; }
+}
+
+
+
 /* End clean theme override */
 
 /*
@@ -265,6 +378,44 @@ section, .inner, #main > section {
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 	rebuild
 */
+
+.project-modal .modal-body {
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) !important;
+	border: 1px solid rgba(45,212,191,0.12) !important;
+	padding: 1rem !important;
+	border-radius: 10px !important;
+	box-shadow: 0 6px 18px rgba(2,6,23,0.35) inset !important;
+}
+
+.project-modal .modal-body h3, .project-modal .modal-body h4 {
+	color: var(--clean-accent) !important;
+	margin: 0 0 0.5rem 0 !important;
+	font-weight: 800 !important;
+}
+
+.project-modal .modal-body p {
+	color: var(--clean-muted) !important;
+	line-height: 1.55 !important;
+	margin-bottom: 0.8rem !important;
+}
+
+.project-modal .modal-body ul { margin-left: 1rem !important; color: var(--clean-muted) !important; }
+
+/* Close button refinement */
+.project-modal .modal-close { background: linear-gradient(90deg,var(--clean-accent),var(--clean-accent-2)) !important; color: #00121a !important; border: none !important; }
+.project-modal .modal-close:hover { transform: translateY(-2px) !important; }
+
+/* Scrollbar styling for modal body (WebKit) */
+.project-modal .modal-body::-webkit-scrollbar { width: 10px; }
+.project-modal .modal-body::-webkit-scrollbar-track { background: rgba(255,255,255,0.01); border-radius: 8px; }
+.project-modal .modal-body::-webkit-scrollbar-thumb {
+	background: linear-gradient(180deg, var(--clean-accent), var(--clean-accent-2)) !important;
+	border-radius: 8px;
+	border: 2px solid rgba(0,0,0,0.12);
+}
+
+/* Firefox scrollbar */
+.project-modal .modal-body { scrollbar-width: thin; scrollbar-color: var(--clean-accent) rgba(255,255,255,0.02); }
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -4140,4 +4291,35 @@ body::before, body::after, html::before, html::after {
 
 /* Revert any rules that force transparent for explicit white backgrounds */
 *[style*="background: transparent"] { background: transparent !important; }
+
+/* ---------------------------------------------------------------------------
+   Force uniform project thumbnail sizing (final safeguard)
+   - Ensure all project video containers use a constant 4:3 aspect ratio
+   - High-specificity selectors, placed at EOF with !important to override
+	 inline fallbacks and other cascade conflicts observed during tuning
+----------------------------------------------------------------------------*/
+#two .row .work-item .image.fit.thumb,
+#two .work-item .image.fit.thumb {
+	width: 100% !important;
+	max-width: 480px !important; /* choose the project's desired max width */
+	aspect-ratio: 16 / 9 !important;
+	overflow: hidden !important;
+	margin: 0 auto !important;
+	height: auto !important; /* allow aspect-ratio to drive height */
+}
+
+#two .row .work-item video.fit.thumb,
+#two > .row .work-item video.fit.thumb,
+#two .work-item video.fit.thumb {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	display: block !important;
+}
+
+/* Defensive rule: ensure work-item cards don't vary in max-width */
+#two .work-item { max-width: 480px !important; }
+
+/* (modal polish removed - restored to base styles) */
+
 

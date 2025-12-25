@@ -59,14 +59,7 @@
 	</head>
 	<body class="is-preload">
 
-		<!-- Portfolio under construction banner -->
-		<div id="construction-banner" role="region" aria-label="Site status banner">
-			<div class="banner-inner">
-				<span class="banner-emoji">🚧</span>
-				<strong>Portfolio under construction</strong>
-				<span class="banner-text">Some pages may look different while I'm tinkering. Thanks for stopping by!</span>
-			</div>
-		</div>
+
 
 		<nav id="navbar" role="navigation" aria-label="Main Navigation" style="background: linear-gradient(180deg, rgba(0,122,204,0.95), rgba(0,229,255,0.85)) !important;">
 		<ul>
@@ -93,21 +86,14 @@
 				<div class="about-grid">
 					<div class="about-photo">
 						<!-- Replace images/me.jpg with your photo file -->
-						<img id="about-photo" src="images/abhijitPic.jpg" alt="Your photo" />
+						<img id="about-photo" src="images/abhijitPic.png" alt="Your photo" />
+						<div class="photo-name" style="text-align:center; margin-top:0.5rem; font-weight:600;">Abhijit Tadepalli</div>
 					</div>
 
 					<div class="about-text">
-						<p>
-							Hi, I’m Vamsi Sai Abhijit Tadepalli — a robotics engineer blending systems thinking with a bit of caffeine-fueled determination. I’m currently pursuing my M.S. in Robotics at ASU, where I specialize in <strong>computer vision, perception, and autonomy</strong> for intelligent robotic systems.
-						</p>
-
-						<p>
-							At the <strong>IRIS Lab</strong>, I contribute to vision-based tracking systems, currently refactoring and extending the <em>TwinTrack</em> framework for dynamic object tracking. My experience spans real-time control of drones for precision landings, and deep learning pipelines for industrial defect detection at <strong>BARC</strong>.
-						</p>
-
-						<p>
-							I enjoy working at the intersection of software and the physical world — building systems that not only run in simulation, but also survive it. My toolkit includes <strong>Python, C++, ROS2, OpenCV, and Linux</strong>, and my mindset is tuned for clean, modular, and testable code.
-						</p>
+						<p>I’m an M.S. Robotics student at ASU specializing in robot perception and real-time vision systems. At the IRIS Lab I build and maintain SLAM and object-tracking pipelines for dexterous manipulation.
+						I like turning messy research code into reliable, ROS2-based systems: cleaner abstractions, faster debugging, and vision modules that actually run in real time on hardware.
+						<p><strong>Currently looking for:</strong> Full-time roles in the US as a Robotics Software Engineer – Perception / Computer Vision / SLAM starting Summer/Fall 2026.</p>
 					</div>
 				</div>
 
@@ -115,8 +101,34 @@
 
 				<!-- Two -->
 					<section id="two">
-						<h2>Projects</h2>
+						<h2>Projects <span id="project-count" aria-live="polite">0</span></h2>
 						<div class="row">
+							<article class="col-6 col-12-xsmall work-item">
+								<div class="image fit thumb">
+									<video autoplay muted loop playsinline class="fit thumb">
+										<source src="images/foundationposeVideo.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+								</div>
+								<h3><a href="#" class="project-link">FoundationPose++ for 6 DoF Tracking</a></h3>
+									<div class="project-desc" style="display:none;">
+										<p>
+										Engineered a lab-wide 6-DoF pose tracking pipeline based on FoundationPose++, used as the perception backbone for robotic dexterous manipulation experiments.
+										</p>
+										<ul>
+										<li>
+												Deployed and configured the system on shared GPU hardware, ensuring reproducible runs and consistent behavior across multiple machines and robots.
+										</li>
+										<li>
+											Integrated pose tracking into the manipulation stack (perception → planning → control) and built reusable tooling for calibration, configuration, and experiment launch for other lab members.
+										</li>
+										<li>
+											Created and organized a library of object meshes used in experiments, standardizing geometry and simplifying setup for new manipulation tasks.
+										</li>
+										</ul>
+									</div>
+							</article>
+
 							<article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
 									<video autoplay muted loop playsinline class="fit thumb">
@@ -124,7 +136,7 @@
 										Your browser does not support the video tag.
 									</video>
 								</div>
-								<h3><a href="#" class="project-link">TwinTrack:Vision-Based SLAM & Tracking Framework</a></h3>
+								<h3><a href="#" class="project-link">6 DoF Object Pose with Keyframe Gaussian Splatting</a></h3>
 								<div class="project-desc" style="display:none;">
 									<p>Refactored and maintained TwinTrack’s codebase to improve clarity and support future research.</p>
 									<p>i. Maintained and refactored the official TwinTrack codebase — a dual-branch tracking system integrating short-term and long-term visual cues</p>
@@ -147,40 +159,21 @@
 									<p>iii. Designed a sub-matrix vision algorithm enabling real-time tracking at 15 FPS and precision landings within ±10 cm of a moving target</p>
 								</div>
 							</article>
-
 							<article class="col-6 col-12-xsmall work-item">
 								<div class="image fit thumb">
 									<video autoplay muted loop playsinline class="fit thumb">
-										<source src="#" type="video/mp4">
+										<source src="images/mrs_sim.mp4" type="video/mp4">
 										Your browser does not support the video tag.
 									</video>
 								</div>
-								<h3><a href="#" class="project-link">[PLACEHOLDER]</a></h3>
+								<h3><a href="#" class="project-link">Cooperative Transport of a Rigid Payload</a></h3>
 								<div class="project-desc" style="display:none;">
 									<p>Implemented SLAM for autonomous navigation on a TurtleBot with LiDAR and a 4-DOF robotic arm for pick-and-place tasks.</p>
-									<p>i. Mapped ~40 m² environments with ±5 cm localization accuracy using 2D LiDAR SLAM</p>
-									<p>ii. Achieved &gt;85% success over 20+ autonomous navigation trials with dynamic obstacle handling</p>
-									<p>iii. Executed pick-and-place tasks within a 1 m reach, averaging less that 1 min per cycle</p>
+									<p>i. </p>
+									<p>ii. </p>
+									<p>iii. </p>
 								</div>
 							</article>
-
-							<article class="col-6 col-12-xsmall work-item">
-								<div class="image fit thumb">
-									<video autoplay muted loop playsinline class="fit thumb">
-										<source src="#" type="video/mp4">
-										Your browser does not support the video tag.
-									</video>
-								</div>
-								<h3><a href="#" class="project-link">[PLACEHOLDER]</a></h3>
-								<div class="project-desc" style="display:none;">
-									<p>Implemented SLAM for autonomous navigation on a TurtleBot with LiDAR and a 4-DOF robotic arm for pick-and-place tasks.</p>
-									<p>i. Mapped ~40 m² environments with ±5 cm localization accuracy using 2D LiDAR SLAM</p>
-									<p>ii. Achieved &gt;85% success over 20+ autonomous navigation trials with dynamic obstacle handling</p>
-									<p>iii. Executed pick-and-place tasks within a 1 m reach, averaging less that 1 min per cycle</p>
-								</div>
-							</article>
-
-							
 						</div>
 					</section>
 
