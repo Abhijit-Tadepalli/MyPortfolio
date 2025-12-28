@@ -257,12 +257,7 @@ section, .inner, #main > section {
 	#main { padding: 3rem 1rem !important; }
 }
 
-# =====================================
-# Enforce constant 4:3 aspect ratio for project videos
-# - high-specificity + !important to override inline styles
-# - container uses aspect-ratio so height is computed from width
-# - videos fill the container via object-fit: cover
-# =====================================
+/* Project media: centered, capped width, consistent aspect ratio */
 #two > .row .work-item .image.fit.thumb,
 #two .work-item .image.fit.thumb {
 	width: 100% !important;
