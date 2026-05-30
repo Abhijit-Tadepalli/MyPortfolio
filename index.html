@@ -2,1126 +2,318 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <title>Abhijit’s Portfolio</title>
-
-    <!-- Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Abhijit Tadepalli</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Main stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css" />
-
-    <!-- Minimal fallback styles (only for resilience if main.css fails to load) -->
-    <style>
-      html,
-      body {
-        box-sizing: border-box;
-        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-      }
-      *,
-      *::before,
-      *::after {
-        box-sizing: inherit;
-      }
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      /* Keep media inside cards */
-      .project-media video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      /* Small safety cap for legacy thumb usage */
-      .image.fit.thumb {
-        max-width: 480px;
-        margin: 0 auto;
-      }
-      video.fit.thumb {
-        width: 100%;
-        max-width: 480px;
-        height: auto;
-        display: block;
-        object-fit: cover;
-        border-radius: inherit;
-      }
-
-      /* Navbar fallback */
-      #navbar {
-        position: fixed;
-        top: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0, 122, 204, 0.9);
-        color: #fff;
-        padding: 0.4rem 0.75rem;
-        border-radius: 999px;
-        z-index: 2000;
-      }
-
-      /* HERO (scoped) — compact, about-you first */
-      #one.hero {
-        padding: clamp(2.75rem, 5vw, 4.25rem) 0;
-      }
-      #one .hero-wrap {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1.45fr 0.55fr;
-        gap: clamp(1.25rem, 3vw, 2.5rem);
-        align-items: center;
-      }
-      #one .hero-kicker {
-        margin: 0 0 0.55rem 0;
-        font-size: 0.95rem;
-        letter-spacing: 0.02em;
-        color: #6b7280 !important;
-      }
-      #one .hero-title {
-        margin: 0 0 0.9rem 0;
-        font-size: clamp(2.1rem, 4.2vw, 3.2rem);
-        line-height: 1.04;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: #071633 !important;
-      }
-      #one .hero-paragraph {
-        margin: 0 0 1.05rem 0;
-        max-width: 70ch;
-        font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-        line-height: 1.55;
-        color: #374151 !important;
-      }
-      #one .chip-row {
-        margin: 0 0 1.35rem 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      #one .chip {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.38rem 0.65rem;
-        border-radius: 999px;
-        border: 1px solid rgba(11, 18, 32, 0.08);
-        background: rgba(0, 119, 204, 0.05);
-        color: #0b1220 !important;
-        font-size: 0.92rem;
-        font-weight: 600;
-        white-space: nowrap;
-      }
-      #one .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        align-items: center;
-        margin-top: 0.1rem;
-      }
-      #one .hero-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.75rem 0.95rem;
-        border-radius: 12px;
-        border: 1px solid rgba(11, 18, 32, 0.1);
-        text-decoration: none;
-        font-weight: 700;
-        letter-spacing: 0.01em;
-        line-height: 1;
-        transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
-        color: #0b1220 !important;
-        background: #ffffff;
-        box-shadow: 0 8px 20px rgba(11, 18, 32, 0.06);
-      }
-      #one .hero-btn.primary {
-        background: linear-gradient(90deg, #0077cc, #005fa3);
-        border-color: rgba(0, 95, 163, 0.25);
-        color: #ffffff !important;
-        box-shadow: 0 12px 30px rgba(0, 119, 204, 0.18);
-      }
-      #one .hero-btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 14px 34px rgba(11, 18, 32, 0.1);
-      }
-      #one .hero-btn:focus {
-        outline: 3px solid rgba(0, 119, 204, 0.28);
-        outline-offset: 2px;
-      }
-      #one .hero-media {
-        justify-self: end;
-        width: min(320px, 100%);
-      }
-      #one .hero-photo {
-        width: 100%;
-        border-radius: 18px;
-        overflow: hidden;
-        border: 1px solid rgba(11, 18, 32, 0.08);
-        box-shadow: 0 18px 40px rgba(11, 18, 32, 0.1);
-        background: #fff;
-      }
-      #one .hero-photo img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      @media (max-width: 840px) {
-        #one .hero-wrap {
-          grid-template-columns: 1fr;
-        }
-        #one .hero-media {
-          justify-self: start;
-          width: min(280px, 100%);
-        }
-      }
-      @media (prefers-reduced-motion: no-preference) {
-        #one .fadeup {
-          animation: fadeUp 420ms ease both;
-        }
-        #one .fadeup.d1 {
-          animation-delay: 70ms;
-        }
-        #one .fadeup.d2 {
-          animation-delay: 140ms;
-        }
-        #one .fadeup.d3 {
-          animation-delay: 210ms;
-        }
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(6px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      }
-    </style>
   </head>
 
   <body class="is-preload">
-    <!-- Navbar -->
-    <nav id="navbar" role="navigation" aria-label="Main Navigation">
-      <ul>
-        <li><a href="#one">About</a></li>
-        <li><a href="#two">Projects</a></li>
-        <li><a href="#Experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#three">Contact</a></li>
-      </ul>
-    </nav>
 
-    <!-- Main -->
     <main id="main">
-      <!-- About / Hero -->
-      <section id="one" class="hero">
-        <div class="hero-wrap">
-          <div class="hero-content">
-            <p class="hero-kicker fadeup">📍Tempe, AZ</p>
 
-            <h1 class="hero-title fadeup d1">Abhijit Tadepalli</h1>
+      <!-- ══ ABOUT ══ -->
+      <section id="about">
+        <div class="about-wrap">
 
-            <p class="hero-paragraph fadeup d2">
-              I’m a Graduate Robotics student at ASU, focused on perception for
-              manipulation. I love the moment when a vision pipeline stops being
-              “research code” and starts behaving like a reliable part of a
-              robot-steady 6-DoF pose, clean tracking, solid calibration, and a
-              stack you can trust on hardware. At ASU’s IRIS Lab, I work end-to-end
-              from cameras to robot behavior, and I’m happiest building tools and
-              workflows that make experiments repeatable for everyone.
+          <div class="about-photo-col">
+            <img
+              src="images/Digital_Picture_Abhijit_01.JPG"
+              alt="Portrait of Abhijit Tadepalli"
+              class="about-photo"
+            />
+          </div>
+
+          <div class="about-bio-col">
+            <h1 class="about-name">Abhijit Tadepalli</h1>
+
+            <p class="about-bio">
+              I build perception systems that work on real hardware, not just in simulation.
+              At ASU's IRIS Lab, I ship 6D pose estimation, 3D tracking, and vision pipelines
+              end-to-end: from camera calibration to robot behavior.
+              I care about one thing: reliable systems you can trust in production.
             </p>
 
-            <!-- <ul class="chip-row fadeup d3" aria-label="Focus areas">
-              <li class="chip">6-DoF pose</li>
-              <li class="chip">Tracking</li>
-              <li class="chip">SLAM</li>
-              <li class="chip">ROS2</li>
-              <li class="chip">Real-time systems</li>
-            </ul> -->
+            <p class="about-interests">
+              <strong>Research Interests:</strong> Machine Vision, 6D Pose, <span style="white-space:nowrap">3D Tracking, Manipulation</span>
+            </p>
 
-            <div class="hero-actions fadeup d3" aria-label="Primary actions">
-              <a
-                class="hero-btn primary"
-                href="assets/Resume_Abhijit_Tadepalli.pdf"
-                target="_blank"
-                rel="noopener"
-                >Resume</a
-              >
-              <a
-                class="hero-btn primary"
-                href="https://github.com/Abhijit-Tadepalli"
-                target="_blank"
-                rel="noopener"
-                >GitHub</a
-              >
-              <a class="hero-btn primary" href="mailto:vtadepa1@asu.edu">Email</a>
+            <div class="about-links">
+              <a href="assets/Resume_Abhijit_Tadepalli.pdf" target="_blank" rel="noopener" class="about-link-btn">Resume</a>
+              <a href="https://github.com/Abhijit-Tadepalli" target="_blank" rel="noopener" class="about-link-btn">GitHub</a>
+              <a href="mailto:vtadepa1@asu.edu" class="about-link-btn">Email</a>
             </div>
           </div>
 
-          <div class="hero-media">
-            <div class="hero-photo">
-              <img
-                src="images/Digital_Picture_Abhijit_01.JPG"
-                alt="Portrait of Abhijit Tadepalli"
-              />
-            </div>
-          </div>
         </div>
       </section>
 
-      <!-- Projects -->
-      <section id="two" aria-labelledby="projects-heading">
-        <header class="major">
-          <h2 id="projects-heading">Selected Projects</h2>
-          <p class="projects-subhead">
-            A focused set of work in perception for manipulation and real-world
-            computer vision.
-          </p>
+      <!-- ══ PROJECTS ══ -->
+      <section id="projects">
+
+        <!-- Publications -->
+        <header class="section-header">
+          <h2>Publications</h2>
         </header>
 
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card">
-            <div class="project-media" aria-hidden="true">
-              <video autoplay muted loop playsinline preload="metadata">
-                <source src="images/twintrack.mp4" type="video/mp4" />
-              </video>
-            </div>
-
-            <div class="project-body">
-              <div class="project-title-row">
-                <div class="project-meta">ICRA 2026 submitted</div>
-                <h3 class="project-title">TwinTrack: 3D Gaussian Splatting Tracking</h3>
+        <!-- TwinTrack -->
+        <div class="pub-card">
+          <div class="pub-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="images/twintrack.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="pub-body">
+            <p class="pub-venue">ICRA 2026</p>
+            <h3 class="pub-title">TwinTrack: Bridging Vision and Contact Physics for Real-Time Tracking of Unknown Objects in Contact-Rich Scenes</h3>
+            <p class="pub-authors">Wen Yang, Zhixian Xie, Yiting Wang, <strong>Abhijit Tadepalli</strong>, <span style="white-space:nowrap">Heni Ben Amor</span>, Shan Lin, Wanxin Jin</p>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2505.22882" target="_blank" rel="noopener" class="pub-link">[Paper]</a>
+                <a href="YOUR_VIDEO_URL" target="_blank" rel="noopener" class="pub-link">[Video]</a>
+                <a href="YOUR_WEBPAGE_URL" target="_blank" rel="noopener" class="pub-link">[Webpage]</a>
               </div>
+            <p class="pub-desc">
+              
+            </p>
+          </div>
+        </div>
 
-              <p class="project-one-liner">
-                Refactored a legacy 3D tracking system into modular, reproducible
-                components and extended the tracking pipeline with new keyframe-selection
-                strategies.
-              </p>
+        <!-- Featured Projects -->
+        <header class="section-header section-header--other">
+          <h2>Featured Projects</h2>
+        </header>
 
-              <ul class="project-tags" aria-label="Technologies used">
-                <li>Python</li>
-                <li>C++</li>
-                <li>3D Tracking</li>
-                <li>Gaussian Splatting</li>
-              </ul>
-
-              <ul class="project-bullets">
-                <li>Modularized APIs and cleaned execution paths for easier debugging and maintenance.</li>
-                <li>Added documentation and structure to support repeatable research runs across users.</li>
-                <li>Extended keyframe selection strategies for more stable tracking behavior.</li>
-              </ul>
-
-              <div class="project-links">
-                <!-- <a
-                  class="project-link"
-                  href="https://github.com/Abhijit-Tadepalli"
-                  target="_blank"
-                  rel="noopener"
-                  >GitHub</a
-                > -->
-				<a
-                  class="project-link"
-                  href="https://arxiv.org/abs/2505.22882"
-                  target="_blank"
-                  rel="noopener"
-                  >Paper</a
-                >
+        <!-- Featured 1: Allegro -->
+        <div class="pub-card">
+          <div class="pub-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="images/allegro_video.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="pub-body">
+            <p class="pub-venue">⭐ Master's Thesis</p>
+            <h3 class="pub-title">Vision-Based Dexterous In-Hand Object Reorientation via Object-Aware Teleoperation and Imitation Learning</h3>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2505.22882" target="_blank" rel="noopener" class="pub-link">[Document]</a>
               </div>
-            </div>
-          </article>
+            <p class="pub-desc">
+              Project Summary
+            </p>
+          </div>
+        </div>
 
-          <!-- Project 2 -->
-          <article class="project-card">
-            <div class="project-media" aria-hidden="true">
-              <video autoplay muted loop playsinline preload="metadata">
-                <source src="images/foundationposeVideo.mp4" type="video/mp4" />
-              </video>
-            </div>
-
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">FoundationPose++: Online 6-DoF Pose for Manipulation</h3>
+        <!-- Featured 2: UAV -->
+        <div class="pub-card">
+          <div class="pub-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="images/drone_video.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="pub-body">
+            <!-- <p class="pub-venue">Academic Project · ASU</p> -->
+            <h3 class="pub-title">Autonomous UAV Target Tracking &amp; Landing</h3>
+              <div class="pub-links">
+                <a href="" target="_blank" rel="noopener" class="pub-link">[Github]</a>
+                <!-- <a href="YOUR_VIDEO_URL" target="_blank" rel="noopener" class="pub-link">[Video]</a>
+                <a href="YOUR_WEBPAGE_URL" target="_blank" rel="noopener" class="pub-link">[Webpage]</a> -->
               </div>
+            <p class="pub-desc">
+              Built a Simulink-based autonomy pipeline for vision-driven target tracking and
+              autonomous landing, integrating perception outputs with control logic for stable
+              closed-loop behavior.
+            </p>
+          </div>
+        </div>
 
-              <p class="project-one-liner">
-                Integrated a 6-DoF pose estimation stack on real hardware to support
-                vision-guided manipulation experiments.
-              </p>
+        </div>
 
-              <ul class="project-tags" aria-label="Technologies used">
-                <li>6-DoF Pose</li>
-                <li>Perception Integration</li>
-                <li>Franka-Emika Panda</li>
-				<li>Allegro/LEAP Hand</li>
-              </ul>
+      </section>
 
-              <ul class="project-bullets">
-                <li>Deployed and configured the pose stack for reliable use on shared lab hardware.</li>
-                <li>Built calibration/config tooling so experiments launch consistently across setups.</li>
-                <li>Integrated pose outputs into the manipulation pipeline (perception → robot behavior).</li>
-              </ul>
+      <!-- ══ EXPERIENCE ══ -->
+      <section id="experience">
+        <header class="section-header">
+          <h2>Experience</h2>
+        </header>
 
-              <!-- <div class="project-links">
-                <a
-                  class="project-link"
-                  href="https://github.com/Abhijit-Tadepalli"
-                  target="_blank"
-                  rel="noopener"
-                  >GitHub</a
-                >
-              </div> -->
-            </div>
-          </article>
+    
 
-          <!-- Project 3 -->
-          <article class="project-card">
-            <div class="project-media project-media--placeholder" aria-hidden="true">
-              <div class="placeholder-inner">
-                <div class="placeholder-title">YOLOv5 Defect Inspection</div>
-                <div class="placeholder-subtitle">Steel-pipe visual inspection pipeline</div>
+        <!-- IRIS Lab -->
+        <div class="exp-row">
+          <div class="exp-logo-col">
+            <img src="images/irisLogo.png" alt="IRIS Lab logo" class="exp-logo-img" />
+          </div>
+          <div class="exp-body">
+            <div class="exp-top-row">
+              <div>
+                <h3 class="exp-role">Graduate Researcher</h3>
+                <p class="exp-org">Intelligent Robotics and Interactive Systems (IRIS) Lab</p>
               </div>
+              <span class="exp-date">Dec 2024 - June 2026 | Tempe, AZ</span>
             </div>
+            <ul class="exp-bullets">
+              <li>Achieved 20+ Hz real-time 6D object tracking by processing RGB-D point clouds from Intel RealSense, with a custom keyframe strategy to reduce drift under occlusion in long rollouts.</strong>.</li>
+              <li>Enabled reliable perception budgeting by profiling tracking latency to 15ms per frame across segmentation, feature extraction, and fusion modules. </li>
+              <li>Improved demonstration quality by replacing MediaPipe with WiLoR for hand reconstruction, increasing retargeting fidelity for Allegro Hand v4 teleoperation. </li>
+              <li>Built a 200-episode multimodal dataset combining vision, proprioception, and tracked object pose, structured for direct use in imitation learning pipelines. </li>
+              <li>Deployed an object-aware Diffusion Policy in closed loop at 15 Hz, where explicit pose conditioning substantially outperformed visual-only baselines on real hardware.</li>
 
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">YOLOv5 Defect Detection Pipeline (BARC)</h3>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ASU Teaching -->
+        <div class="exp-row">
+          <div class="exp-logo-col">
+            <img src="images/asu_logo.png" alt="ASU logo" class="exp-logo-img" />
+          </div>
+          <div class="exp-body">
+            <div class="exp-top-row">
+              <div>
+                <h3 class="exp-role">Teaching Assistant</h3>
+                <p class="exp-org">Arizona State University (ASU)</p>
               </div>
-
-              <p class="project-one-liner">
-                Built an end-to-end inspection pipeline-data curation, training,
-                evaluation-and tuned it for challenging imaging conditions.
-              </p>
-
-              <ul class="project-tags" aria-label="Technologies used">
-                <li>PyTorch</li>
-                <li>YOLOv5</li>
-                <li>OpenCV</li>
-                <li>Deployment Pipeline</li>
-              </ul>
-
-              <ul class="project-bullets">
-                <li>Automated data capture/curation, training, and evaluation to accelerate NDT review by 80%.</li>
-                <li>Tuned preprocessing for reflections and low-light conditions; achieved 90%+ validation accuracy on internal evaluation splits and improved detection consistency.</li>
-              </ul>
-
-              <!-- <div class="project-links">
-                <a
-                  class="project-link"
-                  href="https://github.com/Abhijit-Tadepalli"
-                  target="_blank"
-                  rel="noopener"
-                  >GitHub</a
-                >
-              </div> -->
+              <span class="exp-date">Aug 2025 - May 2026 | Tempe, AZ</span>
             </div>
-          </article>
+            <ul class="exp-bullets">
+              <li>MAE 202 (Mechanics of Particles and Rigid Bodies): Strengthened student performance across two semesters through office hours and recitation support.</li>
+              <li>MAE 417 (System Dynamics and Control) and MAE 202: Delivered consistent, structured feedback across upper-division courses through rigorous assignment and exam evaluation.</li>
+            </ul>
+          </div>
+        </div>
 
-          <!-- Project 4 -->
-          <article class="project-card">
-            <div class="project-media" aria-hidden="true">
-              <video autoplay muted loop playsinline preload="metadata">
-                <source src="images/drone_video.mp4" type="video/mp4" />
-              </video>
-            </div>
-
-            <div class="project-body">
-              <div class="project-title-row">
-                <h3 class="project-title">Autonomous UAV Target Tracking &amp; Landing</h3>
+        <!-- BARC -->
+        <div class="exp-row">
+          <div class="exp-logo-col">
+            <img src="images/barcLogo.png" alt="BARC logo" class="exp-logo-img" />
+          </div>
+          <div class="exp-body">
+            <div class="exp-top-row">
+              <div>
+                <h3 class="exp-role">Machine Learning Intern</h3>
+                <p class="exp-org">Bhabha Atomic Research Centre (BARC)</p>
               </div>
-
-              <p class="project-one-liner">
-                Built a Simulink-based autonomy pipeline for target tracking and
-                landing with a vision-driven loop.
-              </p>
-
-              <ul class="project-tags" aria-label="Technologies used">
-                <li>MATLAB</li>
-                <li>Simulink</li>
-                <li>Control</li>
-                <li>Vision</li>
-              </ul>
-
-              <ul class="project-bullets">
-                <li>Implemented a vision-based target tracking loop designed to stay stable under changing conditions.</li>
-                <li>Integrated perception outputs with control logic for autonomous landing behavior.</li>
-              </ul>
-			  <div class="project-links">
-                <a
-                  class="project-link"
-                  href="https://github.com/Abhijit-Tadepalli/UAVTargetTracking"
-                  target="_blank"
-                  rel="noopener"
-                  >GitHub</a
-                >
-              </div>
+              <span class="exp-date">May 2023 - Jul 2023 | Mumbai, India</span>
             </div>
-          </article>
+            <ul class="exp-bullets">
+              <li>Enabled automated defect detection in steel pipe borescope videos by training YOLOv5 for localization and ResNet for 5-class defect classification.</li>
+              <li>Accelerated model training by curating a 6,000+ frame labeled dataset extracted from raw inspection footage covering diverse defect types.</li>
+              <li>Reduced manual review effort by packaging model outputs into structured reports with bounding boxes, defect class, and confidence scores.</li>
+              <li>Cut reliance on manual frame-by-frame inspection by building an offline automated review pipeline for 1.5cm diameter steel pipe quality control.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- IIT Hyderabad -->
+        <div class="exp-row">
+          <div class="exp-logo-col">
+            <img src="images/iithLogoo.png" alt="IIT Hyderabad logo" class="exp-logo-img" />
+          </div>
+          <div class="exp-body">
+            <div class="exp-top-row">
+              <div>
+                <h3 class="exp-role">Research Intern</h3>
+                <p class="exp-org">Indian Institute of Technology Hyderabad (IITH)</p>
+              </div>
+              <span class="exp-date">Mar 2023 - Apr 2023 | Hyderabad, India</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Prototyped an agricultural fruit pick-and-place robotic arm with integrated gripper, combining mechanical design, servo actuation, and embedded Arduino control.</li>
+              <li>Demonstrated end-to-end coordination across arm joints and gripper assembly, validating core manipulation capability for farm automation applications.</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ══ SKILLS ══ -->
+      <section id="skills">
+        <header class="section-header">
+          <h2>Skills</h2>
+        </header>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Languages</h3>
+            <ul class="skill-chips">
+              <li class="skill-chip"><img src="images/Python-logo-notext.svg.png" alt="">Python</li>
+              <li class="skill-chip"><img src="images/ISO_C++_Logo.svg.png" alt="">C++</li>
+              <li class="skill-chip"><img src="images/matlab.svg" alt="">MATLAB</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Robotics</h3>
+            <ul class="skill-chips">
+              <li class="skill-chip"><img src="images/Ros_logo.svg.png" alt="">ROS2</li>
+              <li class="skill-chip"><img src="images/Gazebo_logo_without_text.svg.png" alt="">Gazebo</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Computer Vision &amp; ML</h3>
+            <ul class="skill-chips">
+              <li class="skill-chip"><img src="images/OpenCV_logo_no_text.png" alt="">OpenCV</li>
+              <li class="skill-chip"><img src="images/pytorchIcon.png" alt="">PyTorch</li>
+              <li class="skill-chip"><img src="images/numpyIcon.png" alt="">NumPy</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Dev &amp; Deploy</h3>
+            <ul class="skill-chips">
+              <li class="skill-chip"><img src="images/Git_icon.svg.png" alt="">Git</li>
+              <li class="skill-chip"><img src="images/linuxIcon.png" alt="">Linux</li>
+              <li class="skill-chip"><img src="images/dockerIcon.png" alt="">Docker</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Simulation &amp; Control</h3>
+            <ul class="skill-chips">
+              <li class="skill-chip"><img src="images/simulinkIcon.png" alt="">Simulink</li>
+              <li class="skill-chip"><img src="images/mujocoIcon.png" alt="">MuJoCo</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Compute</h3>
+            <ul class="skill-chips">
+              <li class="skill-chip"><img src="images/ubuntuIcon.png" alt="">Ubuntu</li>
+              <li class="skill-chip"><img src="images/cudaIcon.svg" alt="">NVIDIA CUDA</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <!-- Experience -->
-      
-
-		<section id="Experience" class="exp-elite" aria-labelledby="experience-heading">
-		<style>
-			/* ===== Experience (scoped) ===== */
-			#Experience.exp-elite {
-			padding: clamp(3rem, 6vw, 4.75rem) 0;
-			}
-
-			#Experience .exp-wrap {
-			max-width: 1100px;
-			margin: 0 auto;
-			}
-
-			#Experience .exp-header {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 0.75rem;
-			margin-bottom: 1.6rem;
-			}
-
-			#Experience .exp-header h2 {
-			margin: 0;
-			font-size: clamp(1.85rem, 3.2vw, 2.35rem);
-			letter-spacing: -0.02em;
-			color: #071633;
-			}
-
-			#Experience .exp-subhead {
-			margin: 0;
-			max-width: 78ch;
-			color: #4b5563;
-			font-size: 1.05rem;
-			line-height: 1.6;
-			}
-
-			/* Timeline rail */
-			#Experience .exp-timeline {
-			position: relative;
-			display: grid;
-			gap: 1rem;
-			padding-left: 1.15rem;
-			margin-top: 1.25rem;
-			}
-
-			#Experience .exp-timeline::before {
-			content: "";
-			position: absolute;
-			left: 0.35rem;
-			top: 0.25rem;
-			bottom: 0.25rem;
-			width: 2px;
-			background: linear-gradient(
-				180deg,
-				rgba(0, 119, 204, 0.75),
-				rgba(0, 229, 255, 0.55)
-			);
-			border-radius: 999px;
-			opacity: 0.85;
-			}
-
-			/* Card */
-			#Experience .exp-card {
-			position: relative;
-			background: rgba(255, 255, 255, 0.9);
-			border: 1px solid rgba(11, 18, 32, 0.08);
-			border-radius: 18px;
-			box-shadow: 0 18px 50px rgba(11, 18, 32, 0.08);
-			overflow: hidden;
-			transform: translateZ(0);
-			}
-
-			/* Dot on timeline */
-			#Experience .exp-card::before {
-			content: "";
-			position: absolute;
-			left: -1.15rem;
-			top: 1.45rem;
-			width: 12px;
-			height: 12px;
-			border-radius: 999px;
-			background: #ffffff;
-			border: 2px solid rgba(0, 119, 204, 0.95);
-			box-shadow: 0 8px 18px rgba(0, 119, 204, 0.18);
-			}
-
-			/* Glow accent strip */
-			#Experience .exp-card::after {
-			content: "";
-			position: absolute;
-			inset: 0 0 auto 0;
-			height: 96px;
-			background: radial-gradient(
-				120% 80% at 10% 10%,
-				rgba(0, 229, 255, 0.22),
-				transparent 60%
-				),
-				radial-gradient(
-				120% 80% at 70% 0%,
-				rgba(0, 119, 204, 0.18),
-				transparent 55%
-				);
-			pointer-events: none;
-			}
-
-			#Experience .exp-card-inner {
-			position: relative;
-			padding: 1.25rem 1.25rem 1.1rem 1.25rem;
-			}
-
-			/* Top row: logo + meta */
-			#Experience .exp-top {
-			display: grid;
-			grid-template-columns: 56px 1fr;
-			gap: 0.9rem;
-			align-items: center;
-			margin-bottom: 0.85rem;
-			}
-
-			#Experience .exp-logo {
-			width: 56px;
-			height: 56px;
-			border-radius: 14px;
-			border: 1px solid rgba(11, 18, 32, 0.08);
-			background: #ffffff;
-			display: grid;
-			place-items: center;
-			overflow: hidden;
-			box-shadow: 0 12px 26px rgba(11, 18, 32, 0.08);
-			}
-
-			#Experience .exp-logo img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			display: block;
-			}
-
-			#Experience .exp-logo--text {
-			font-weight: 900;
-			color: #071633;
-			letter-spacing: -0.02em;
-			}
-
-			#Experience .exp-role {
-			font-weight: 800;
-			color: #0b1220;
-			letter-spacing: -0.01em;
-			line-height: 1.25;
-			font-size: 1.06rem;
-			margin: 0;
-			}
-
-			#Experience .exp-companyline {
-			margin-top: 0.15rem;
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.5rem 0.75rem;
-			align-items: center;
-			}
-
-			#Experience .exp-time {
-			color: #6b7280;
-			font-weight: 700;
-			font-size: 0.95rem;
-			white-space: nowrap;
-			}
-
-			#Experience .exp-loc {
-			color: #6b7280;
-			font-weight: 650;
-			font-size: 0.95rem;
-			white-space: nowrap;
-			}
-
-			/* Badge row */
-			#Experience .exp-badges {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.45rem;
-			margin: 0.65rem 0 0.95rem 0;
-			padding: 0;
-			list-style: none;
-			}
-
-			#Experience .badge {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.4rem;
-			padding: 0.35rem 0.6rem;
-			border-radius: 999px;
-			border: 1px solid rgba(11, 18, 32, 0.08);
-			background: rgba(0, 119, 204, 0.06);
-			color: #0b1220;
-			font-weight: 750;
-			font-size: 0.9rem;
-			white-space: nowrap;
-			}
-
-			#Experience .badge .dot {
-			width: 7px;
-			height: 7px;
-			border-radius: 999px;
-			background: rgba(0, 119, 204, 0.9);
-			}
-
-			/* Impact bullets */
-			#Experience .exp-bullets {
-			margin: 0.2rem 0 0 0;
-			padding-left: 1.05rem;
-			color: #111827;
-			}
-
-			#Experience .exp-bullets li {
-			margin: 0.5rem 0;
-			line-height: 1.6;
-			color: #1f2937;
-			}
-
-			#Experience .exp-bullets strong {
-			color: #071633;
-			}
-
-			/* Highlight "impact" strip */
-			#Experience .impact-strip {
-			margin-top: 1rem;
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 0.75rem;
-			}
-
-			#Experience .impact {
-			border-radius: 16px;
-			border: 1px solid rgba(11, 18, 32, 0.08);
-			background: rgba(255, 255, 255, 0.7);
-			padding: 0.85rem 0.9rem;
-			box-shadow: 0 14px 34px rgba(11, 18, 32, 0.06);
-			min-height: 82px;
-			}
-
-			#Experience .impact .kpi {
-			font-size: 1.25rem;
-			font-weight: 900;
-			letter-spacing: -0.02em;
-			color: #005fa3;
-			margin: 0;
-			line-height: 1.1;
-			}
-
-			#Experience .impact .label {
-			margin: 0.25rem 0 0 0;
-			color: #4b5563;
-			font-weight: 650;
-			line-height: 1.35;
-			font-size: 0.95rem;
-			}
-
-			/* Subtle hover */
-			@media (hover: hover) and (pointer: fine) {
-			#Experience .exp-card {
-				transition: transform 170ms ease, box-shadow 170ms ease,
-				border-color 170ms ease;
-			}
-			#Experience .exp-card:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 22px 64px rgba(11, 18, 32, 0.12);
-				border-color: rgba(0, 119, 204, 0.18);
-			}
-			}
-
-			/* Responsive */
-			@media (max-width: 900px) {
-			#Experience .impact-strip {
-				grid-template-columns: 1fr;
-			}
-			}
-
-			/* Optional reveal animation */
-			@media (prefers-reduced-motion: no-preference) {
-			#Experience .reveal {
-				animation: expReveal 520ms ease both;
-			}
-			#Experience .reveal.d1 {
-				animation-delay: 80ms;
-			}
-			#Experience .reveal.d2 {
-				animation-delay: 160ms;
-			}
-			#Experience .reveal.d3 {
-				animation-delay: 240ms;
-			}
-			@keyframes expReveal {
-				from {
-				opacity: 0;
-				transform: translateY(8px);
-				}
-				to {
-				opacity: 1;
-				transform: translateY(0);
-				}
-			}
-			}
-		</style>
-
-		<div class="exp-wrap">
-			<header class="exp-header major">
-			<h2 id="experience-heading">Experience</h2>
-			<p class="exp-subhead">
-				Hardware-validated perception for manipulation, plus applied ML in
-				production environments. Built for reliability, repeatability, and real-world impact.
-			</p>
-			</header>
-
-			<div class="exp-timeline">
-			<!-- IRIS Lab -->
-			<article class="exp-card reveal d1">
-				<div class="exp-card-inner">
-				<div class="exp-top">
-					<div class="exp-logo" aria-hidden="true">
-					<img src="images/irisLogo.png" alt="" />
-					</div>
-
-					<div>
-					<p class="exp-role">Graduate Researcher · IRIS Lab, Arizona State University</p>
-					<div class="exp-companyline">
-						<span class="exp-time">Dec 2024 - Present</span>
-						<span class="exp-loc">· Tempe, AZ</span>
-					</div>
-
-					<ul class="exp-badges" aria-label="Highlights">
-						<li class="badge"><span class="dot"></span> Perception → Manipulation</li>
-						<li class="badge"><span class="dot"></span> 6-DoF Pose & Tracking</li>
-						<li class="badge"><span class="dot"></span> Hardware</li>
-						<li class="badge"><span class="dot"></span> Reproducible Pipelines</li>
-					</ul>
-					</div>
-				</div>
-
-				<ul class="exp-bullets">
-					<li>
-					<strong>Re-architected</strong> a legacy Python/C++ 3D tracking stack into clean, modular components
-					with documented APIs and reproducible run configs; improved debugging velocity and multi-user stability.
-					</li>
-					<li>
-					<strong>Extended</strong> keyframe-selection strategies for 3D Gaussian-splatting tracking
-					to improve stability under motion and viewpoint changes (ICRA 2026 submitted).
-					</li>
-					<li>
-					<strong>Deployed</strong> FoundationPose++ for online 6-DoF pose on real hardware
-					(Franka Emika Panda + Allegro/LEAP), integrating perception outputs directly into manipulation behaviors.
-					</li>
-					<li>
-					<strong>Owned</strong> calibration + configuration tooling (incl. automated hand–eye scripts),
-					cutting setup time by <strong>70%</strong> and raising repeatability for shared lab experiments.
-					</li>
-				</ul>
-
-				<div class="impact-strip" aria-label="Impact highlights">
-					<div class="impact">
-					<p class="kpi">70%</p>
-					<p class="label">reduction in experimental setup time via automation and tooling</p>
-					</div>
-					<div class="impact">
-					<p class="kpi">End-to-end</p>
-					<p class="label">camera → pose/tracking → robot behavior integration on hardware</p>
-					</div>
-					<div class="impact">
-					<p class="kpi">Lab-scale</p>
-					<p class="label">reproducibility improvements for multi-user trials and debugging</p>
-					</div>
-				</div>
-				</div>
-			</article>
-
-						<!-- ASU Teaching -->
-			<article class="exp-card reveal d3">
-				<div class="exp-card-inner">
-				<div class="exp-top">
-					<div class="exp-logo" aria-hidden="true">
-					<img src="images/asu_logo.png" alt="" />
-					</div>
-
-					<div>
-					<p class="exp-role">Graduate Instructional Aide &amp; Course Grader · Arizona State University</p>
-					<div class="exp-companyline">
-						<span class="exp-time">Aug 2025 - Present</span>
-						<span class="exp-loc">· Tempe, AZ</span>
-					</div>
-
-					<ul class="exp-badges" aria-label="Highlights">
-						<li class="badge"><span class="dot"></span> Control + Dynamics</li>
-						<li class="badge"><span class="dot"></span> Teaching at Scale</li>
-						<li class="badge"><span class="dot"></span> Clear Feedback Loops</li>
-					</ul>
-					</div>
-				</div>
-
-				<ul class="exp-bullets">
-					<li>
-					Supported <strong>400+</strong> students across System Dynamics and Control II and Rigid Body Dynamics
-					through office hours, review sessions, and high-signal grading feedback that improved problem-solving habits.
-					</li>
-				</ul>
-
-				<div class="impact-strip" aria-label="Impact highlights">
-					<div class="impact">
-					<p class="kpi">400+</p>
-					<p class="label">students supported through teaching + grading</p>
-					</div>
-					<div class="impact">
-					<p class="kpi">Control</p>
-					<p class="label">reinforced intuition for stability, dynamics, and feedback systems</p>
-					</div>
-					<div class="impact">
-					<p class="kpi">Communication</p>
-					<p class="label">technical clarity under time constraints</p>
-					</div>
-				</div>
-				</div>
-			</article>
-
-			<!-- BARC -->
-			<article class="exp-card reveal d2">
-				<div class="exp-card-inner">
-				<div class="exp-top">
-					<div class="exp-logo" aria-hidden="true">
-					<img src="images/barcLogo.png" alt="" />
-					</div>
-
-					<div>
-					<p class="exp-role">Machine Learning Intern · Bhabha Atomic Research Centre (BARC)</p>
-					<div class="exp-companyline">
-						<span class="exp-time">May 2023 - Jul 2023</span>
-						<span class="exp-loc">· Mumbai, India</span>
-					</div>
-
-					<ul class="exp-badges" aria-label="Highlights">
-						<li class="badge"><span class="dot"></span> End-to-end ML Pipeline</li>
-						<li class="badge"><span class="dot"></span> YOLOv5 + OpenCV</li>
-						<li class="badge"><span class="dot"></span> Industrial Vision</li>
-						<li class="badge"><span class="dot"></span> Deployment-minded</li>
-					</ul>
-					</div>
-				</div>
-
-				<ul class="exp-bullets">
-					<li>
-					<strong>Built</strong> an end-to-end PyTorch pipeline for steel-pipe defect inspection using YOLOv5 
-					(data curation, training, evaluation), designed to reduce manual NDT screening time.
-					</li>
-					<li>
-					<strong>Tuned</strong> preprocessing for reflections and low-light conditions; achieved 90%+ validation 
-					accuracy on internal evaluation splits and improved detection consistency.
-					</li>
-				</ul>
-
-				<div class="impact-strip" aria-label="Impact highlights">
-					<div class="impact">
-					<p class="kpi">Faster</p>
-					<p class="label">NDT review through automation</p>
-					</div>
-					<div class="impact">
-					<p class="kpi">90%+</p>
-					<p class="label">defect detection accuracy in challenging imaging conditions</p>
-					</div>
-					<div class="impact">
-					<p class="kpi">Production</p>
-					<p class="label">data → train → evaluate → iterate</p>
-					</div>
-				</div>
-				</div>
-			</article>
-
-
-			</div>
-		</div>
-		</section>
-
-
-	<!-- Skills -->
-		<section id="skills" aria-labelledby="skills-heading">
-		<header class="major">
-			<h2 id="skills-heading">Skills</h2>
-			<p class="skills-intro">Technical tools and software I use regularly.</p>
-		</header>
-
-		<div class="skills-grid">
-
-			<article class="skill-card">
-			<h3>Languages</h3>
-			<ul class="skill-chips">
-				<li class="skill-chip"><img src="images/Python-logo-notext.svg.png" alt="Python logo" loading="lazy">Python</li>
-				<li class="skill-chip"><img src="images/ISO_C++_Logo.svg.png" alt="C++ logo" loading="lazy">C++</li>
-				<li class="skill-chip"><img src="images/matlab.svg" alt="MATLAB logo" loading="lazy">MATLAB</li>
-			</ul>
-			</article>
-
-			<article class="skill-card">
-			<h3>Robotics</h3>
-			<ul class="skill-chips">
-				<li class="skill-chip"><img src="images/Ros_logo.svg.png" alt="ROS2 logo" loading="lazy">ROS2</li>
-				<li class="skill-chip"><img src="images/Gazebo_logo_without_text.svg.png" alt="Gazebo logo" loading="lazy">Gazebo</li>
-			</ul>
-			</article>
-
-			<article class="skill-card">
-			<h3>Computer Vision & ML</h3>
-			<ul class="skill-chips">
-				<li class="skill-chip"><img src="images/OpenCV_logo_no_text.png" alt="OpenCV logo" loading="lazy">OpenCV</li>
-				<li class="skill-chip"><img src="images/pytorchIcon.png" alt="PyTorch logo" loading="lazy">PyTorch</li>
-				<li class="skill-chip"><img src="images/numpyIcon.png" alt="NumPy logo" loading="lazy">NumPy</li>
-			</ul>
-			</article>
-
-			<article class="skill-card">
-			<h3>Dev & Deploy</h3>
-			<ul class="skill-chips">
-				<li class="skill-chip"><img src="images/Git_icon.svg.png" alt="Git logo" loading="lazy">Git</li>
-				<li class="skill-chip"><img src="images/linuxIcon.png" alt="Linux logo" loading="lazy">Linux</li>
-				<li class="skill-chip"><img src="images/dockerIcon.png" alt="Docker logo" loading="lazy">Docker</li>
-			</ul>
-			</article>
-
-			<article class="skill-card">
-			<h3>Simulation & Control</h3>
-			<ul class="skill-chips">
-				<li class="skill-chip"><img src="images/simulinkIcon.png" alt="Simulink logo" loading="lazy">Simulink</li>
-				<li class="skill-chip"><img src="images/mujocoIcon.png" alt="MuJoCo logo" loading="lazy">MuJoCo</li>
-			</ul>
-			</article>
-
-			<article class="skill-card">
-			<h3>Compute</h3>
-			<ul class="skill-chips">
-				<li class="skill-chip"><img src="images/ubuntuIcon.png" alt="Ubuntu logo" loading="lazy">Ubuntu</li>
-				<li class="skill-chip"><img src="images/cudaIcon.svg" alt="NVIDIA logo" loading="lazy">NVIDIA CUDA</li>
-			</ul>
-			</article>
-
-		</div>
-		</section>
-
-
-
-
-      <!-- Contact -->
-		<section id="three" class="contact" aria-labelledby="contact-heading">
-		<header class="major">
-			<h2 id="contact-heading">Contact</h2>
-			<p class="contact-subhead">
-			I’m actively exploring full-time and internship opportunities in robotics-especially perception, computer vision, and autonomy.
-			If you’re building robots that see, decide, and act, I’d love to connect.
-			</p>
-		</header>
-
-		<div class="contact-grid">
-			<!-- Left: pitch + CTA -->
-			<div class="contact-card contact-card--primary">
-			<h3 class="contact-title">Let’s build reliable perception on real hardware.</h3>
-			<p class="contact-body">
-				I’m interested in roles across perception for manipulation, tracking/SLAM, and vision-driven autonomy.
-				Best way to reach me is email-happy to share a project walkthrough or code samples.
-			</p>
-
-			<div class="contact-actions" aria-label="Contact actions">
-				<a class="contact-btn primary" href="mailto:vtadepa1@asu.edu">Email me</a>
-				<!-- <a class="contact-btn" href="assets/Resume_Abhijit_Tadepalli.pdf" target="_blank" rel="noopener">View Resume</a> -->
-				<!-- <a class="contact-btn" href="https://github.com/Abhijit-Tadepalli" target="_blank" rel="noopener">GitHub</a> -->
-			</div>
-
-			<div class="contact-badges" aria-label="Quick highlights">
-				<!-- <span class="contact-badge">Tempe, AZ</span> -->
-				<!-- <span class="contact-badge">Perception for Manipulation</span> -->
-				<!-- <span class="contact-badge">ROS2 • CV • Real-time</span> -->
-			</div>
-			</div>
-
-			<!-- Right: info cards -->
-			<div class="contact-stack">
-			<div class="info-card">
-				<div class="info-icon" aria-hidden="true">📍</div>
-				<div class="info-text">
-				<div class="info-label">Location</div>
-				<div class="info-value">Tempe, AZ, United States</div>
-				</div>
-			</div>
-
-			<div class="info-card">
-				<div class="info-icon" aria-hidden="true">📞</div>
-				<div class="info-text">
-				<div class="info-label">Phone</div>
-				<a class="info-value link" href="tel:+14808538694">480-853-8694</a>
-				</div>
-			</div>
-
-			<div class="info-card">
-				<div class="info-icon" aria-hidden="true">✉️</div>
-				<div class="info-text">
-				<div class="info-label">Email</div>
-				<a class="info-value link" href="mailto:vtadepa1@asu.edu">vtadepa1@asu.edu</a>
-				</div>
-			</div>
-
-			<!-- <div class="info-card info-card--social">
-				<div class="info-text">
-				<div class="info-label">Links</div>
-				<div class="social-row">
-					<a class="social-pill" href="https://github.com/Abhijit-Tadepalli" target="_blank" rel="noopener">GitHub</a>
-					<a class="social-pill" href="https://linkedin.com/in/YOURHANDLE" target="_blank" rel="noopener">LinkedIn</a>
-				</div>
-				</div>
-			</div> -->
-			</div>
-		</div>
-		</section>
+      <!-- ══ CONTACT ══ -->
+      <section id="contact">
+        <header class="section-header">
+          <h2>Contact</h2>
+        </header>
+        <div class="contact-wrap">
+          <p class="contact-tagline">Let's build something that works in the real world.</p>
+          <p class="contact-body">
+            Seeking full-time roles in robotic perception, computer vision, and autonomous systems. Available for opportunities starting Summer 2026. Happy to share a project walkthrough or code samples.
+          </p>
+          <div class="contact-info-row">
+            <span>📍 Tempe, AZ</span>
+            <span>✉️ <a href="mailto:vtadepa1@asu.edu">vtadepa1@asu.edu</a></span>
+          </div>
+          <div class="contact-actions">
+            <a href="mailto:vtadepa1@asu.edu" class="contact-btn primary">Email me</a>
+            <a href="https://github.com/Abhijit-Tadepalli" target="_blank" rel="noopener" class="contact-btn">GitHub</a>
+          </div>
+        </div>
+      </section>
 
     </main>
 
-    <!-- Footer -->
     <footer id="footer">
-      <div class="inner">
-        <ul class="icons">
-          <li>
-            <a
-              href="https://github.com/Abhijit-Tadepalli"
-              class="icon brands fa-github"
-              target="_blank"
-              rel="noopener"
-              ><span class="label">Github</span></a
-            >
-          </li>
-        </ul>
-
-        <!-- <ul class="copyright">
-          <li>&copy; Vamsi Sai Abhijit Tadepalli</li>
-          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        </ul> -->
+      <div class="footer-inner">
+        <p>© Vamsi Sai Abhijit Tadepalli &nbsp;·&nbsp;
+          <a href="https://github.com/Abhijit-Tadepalli" target="_blank" rel="noopener">GitHub</a>
+        </p>
       </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.poptrox.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
